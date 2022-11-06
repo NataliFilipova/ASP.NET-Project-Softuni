@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProductModel>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2 class="text-center"> @ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var product in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <img class="card-img-top" style="width: 18rem;"
+             src="@product.ImageUrl" alt="Book Image">
+            <div class="card-body">
+
+                <h5 class="card-title mt-1">@product.Name</h5>
+                <p class="mb-0">Price: @product.Price$</p>
+                <p class="mb-0">Price: @product.Description</p>
+               
+
+            </div>
+
+            
+        </div>
+    }
+</div>

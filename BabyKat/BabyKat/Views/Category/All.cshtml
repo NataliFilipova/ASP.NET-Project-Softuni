@@ -1,0 +1,26 @@
+﻿@using BabyKat.Core.Models.Categoryy
+@model IEnumerable<CategoryAllModel>
+
+
+@{
+    ViewBag.Title = "All Categories";
+}
+
+<h2 class="text-center"> @ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var category in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+         
+
+                <h5 class="card-title mt-1">@category.Name</h5>
+
+            <form class="input-group-sm" asp-controller="Product" asp-action="ShowCategory" asp-route-categoryId="@category.Id">
+                <input type="submit" value="Show Category" class="fs-6 btn btn-success mb-3 p-2" />
+            </form>
+
+        </div>
+    }
+</div>

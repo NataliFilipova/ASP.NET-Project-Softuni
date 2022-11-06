@@ -1,0 +1,141 @@
+﻿@media screen and (max-width: 992px) .headtoppart {
+    display: none;
+}
+
+.headtoppart {
+    background-color: #0B9ECA;
+}
+
+.headerwp, .wsmainwp {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+p, div {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.167rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+@media screen and (max-width: 992px) .headtoppart {
+    display: none;
+}
+
+.headtoppart {
+    background-color: #0B9ECA;
+}
+
+.headerwp, .wsmainwp {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+p, div {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.167rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.desktoplogo {
+    margin: 0;
+    padding: 10px 0 0 10px;
+}
+
+@media only screen and (max-width: 991px) .desktoplogo {
+    display: none;
+}
+
+.desktoplogo {
+    padding: 16px 0 0 0;
+    margin: 0;
+    float: left;
+}
+
+p, div {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.167rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
+
+a {
+    color: #0e6ccb;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.desktoplogo img {
+    width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img[Attributes Style] {
+    width: 176px;
+}
+
+.tagline {
+    color: #FFF;
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin: 23px 0 0 15px;
+    float: left;
+}
+
+p, div {
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.167rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
