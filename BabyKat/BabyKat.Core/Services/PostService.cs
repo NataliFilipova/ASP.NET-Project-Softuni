@@ -1,7 +1,9 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Core.Models.Post;
+using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +32,9 @@ namespace BabyKat.Core.Services
                 Rating = model.Rating,
                 Description = model.Description,
                 ProductId = model.ProductId,
-                UserId = userId,
-
+                UserId = model.UserId,
+                Product = product,
+                User = user
 
             };
             user.Posts.Add(entity);
@@ -45,9 +48,20 @@ namespace BabyKat.Core.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PostModel>> GetAllPosts()
+        public async Task<IEnumerable<PostModel>> GetAllPosts()
         {
-            throw new NotImplementedException();
+            return await repo.AllReadonly<Post>()
+             .Select(p => new PostModel()
+             {
+                 Id = p.Id,
+                 Title = p.Title,
+                 Description = p.Description,
+                 Product = p.Product,
+                 Rating = p.Rating,
+                 User = p.User
+             }).ToListAsync();
+
+
         }
     }
 }

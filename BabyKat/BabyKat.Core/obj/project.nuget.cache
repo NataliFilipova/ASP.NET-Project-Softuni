@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XjqrhmTq5H5GQZ/l6mPHlSCxBHfF9xhfLX81J92vYfv4uh8Cb06O47PtCt21L2ArmOeXwsdNwPxMPi1nlSDLsA==",
+  "dgSpecHash": "ff93ZIuC9FD/+WzvT2LQCwUzer9mAlsWRflR075kGgKUs0ss2Tf/rYzcC8kGbnGoGzkPEDyUJq4QHcFb6QGaOA==",
   "success": true,
-  "projectFilePath": "D:\\BabyKat\\BabyKat.Core\\BabyKat.Core.csproj",
+  "projectFilePath": "D:\\BabyKatSoft\\BabyKat\\BabyKat.Core\\BabyKat.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\highf\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.10\\microsoft.aspnetcore.cryptography.internal.6.0.10.nupkg.sha512",
     "C:\\Users\\highf\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.10\\microsoft.aspnetcore.cryptography.keyderivation.6.0.10.nupkg.sha512",

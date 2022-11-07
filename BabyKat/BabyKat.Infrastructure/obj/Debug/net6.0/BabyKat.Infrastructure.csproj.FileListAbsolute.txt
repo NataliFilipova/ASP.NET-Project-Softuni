@@ -26,3 +26,17 @@ D:\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\refint\BabyKat.Infrastructure
 D:\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.pdb
 D:\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.genruntimeconfig.cache
 D:\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\ref\BabyKat.Infrastructure.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\bin\Debug\net6.0\BabyKat.Infrastructure.deps.json
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\bin\Debug\net6.0\BabyKat.Infrastructure.runtimeconfig.json
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\bin\Debug\net6.0\BabyKat.Infrastructure.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\bin\Debug\net6.0\BabyKat.Infrastructure.pdb
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.csproj.AssemblyReference.cache
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.AssemblyInfoInputs.cache
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.AssemblyInfo.cs
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.csproj.CoreCompileInputs.cache
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\refint\BabyKat.Infrastructure.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.pdb
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\BabyKat.Infrastructure.genruntimeconfig.cache
+D:\BabyKatSoft\BabyKat\BabyKat.Infrastructure\obj\Debug\net6.0\ref\BabyKat.Infrastructure.dll
