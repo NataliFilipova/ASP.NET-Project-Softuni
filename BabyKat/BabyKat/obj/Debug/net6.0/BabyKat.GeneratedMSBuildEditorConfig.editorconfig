@@ -23,8 +23,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Article/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Category/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Comment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Comment/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Home/Index.cshtml]
@@ -55,12 +67,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTaG93Q2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BabyKatSoft/BabyKat/BabyKat/Views/Product/Strollers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTdHJvbGxlcnMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_CommentPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21tZW50UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_LoginPartial.cshtml]
@@ -69,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_PostPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qb3N0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_ProductPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_ValidationScriptsPartial.cshtml]

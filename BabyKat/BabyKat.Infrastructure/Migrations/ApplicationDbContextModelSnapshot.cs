@@ -30,27 +30,27 @@ namespace BabyKat.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(6000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Articles");
                 });
@@ -330,9 +330,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "16a4fce5-7a31-449b-8b4e-a141033c9b18",
+                            ConcurrencyStamp = "bf11f6aa-ce73-4d20-a67e-158f7fc55d21",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 11, 7, 12, 36, 41, 102, DateTimeKind.Local).AddTicks(8571),
+                            CreatedDate = new DateTime(2022, 11, 8, 19, 8, 13, 635, DateTimeKind.Local).AddTicks(4929),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -342,9 +342,9 @@ namespace BabyKat.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIogGNDiK9QgZ+Le7SNLkp4h9Z4uYR/Lv9qdlLYrK684L+ez7tmUI9CiBI73uwby0A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBkLSR62h97PGaUGOCfk0gN4hGBNwzvUnAMfvh+1Ki+x6Py+KOgBi3tU8T05/Q4EcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3a23764-4fbe-44c8-b5cc-6066769a719f",
+                            SecurityStamp = "81f744bb-f665-409c-a24a-dcda5639568b",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         });
@@ -489,17 +489,13 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Article", b =>
                 {
-                    b.HasOne("BabyKat.Infrastructure.Data.Category", null)
+                    b.HasOne("BabyKat.Infrastructure.Data.User", "User")
                         .WithMany("Articles")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("BabyKat.Infrastructure.Data.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Comment", b =>
@@ -601,8 +597,6 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Category", b =>
                 {
-                    b.Navigation("Articles");
-
                     b.Navigation("Products");
                 });
 
@@ -613,6 +607,8 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.User", b =>
                 {
+                    b.Navigation("Articles");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

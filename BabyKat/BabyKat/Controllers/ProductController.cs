@@ -66,5 +66,18 @@ namespace BabyKat.Controllers
             await productService.RemoveProductFromCategory(productId);
             return RedirectToAction(nameof(All));
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int productId)
+        {
+            var product = await productService.GetProduct(productId);
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int productId, ProductModel model)
+        {
+            await productService.EditProduct(productId,model);
+            return RedirectToAction(nameof(All));
+        }
     }
 }

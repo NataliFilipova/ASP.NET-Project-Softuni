@@ -18,15 +18,15 @@
 
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
-                
+                <p class="mb-0">Price: @product.Description$</p>
             </div>
 
-            <form class="input-group-sm" asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id">
-                <input type="submit" value="Delete" class="fs-6 btn btn-success mb-3 p-2" />
-            </form>
-
+            <a asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id" class="btn btn-outline-success">Delete</a>
            
             <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
+
+            <a asp-controller="Product" asp-action="Edit" asp-route-productId="@product.Id" class="btn btn-outline-success">Edit Product</a>
+          
         </div>
     }
 </div>

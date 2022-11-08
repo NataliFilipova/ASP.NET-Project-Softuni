@@ -32,6 +32,9 @@ namespace BabyKat.Infrastructure
             public const int DescriptionMinLength = 40;
             public const int DescriptionMaxLength = 300;
 
+            public const int TitleMinLength = 30;
+            public const int TitleMaxLength = 300;
+
         }
         public class PostConstants
         {

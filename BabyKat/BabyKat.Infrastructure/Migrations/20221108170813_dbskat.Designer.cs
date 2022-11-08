@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BabyKat.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221106175611_addigndescript")]
-    partial class addigndescript
+    [Migration("20221108170813_dbskat")]
+    partial class dbskat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,27 +32,27 @@ namespace BabyKat.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(6000)
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Articles");
                 });
@@ -332,9 +332,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "68e782bc-4cc9-4b4e-89f2-ee5fcc840f2c",
+                            ConcurrencyStamp = "bf11f6aa-ce73-4d20-a67e-158f7fc55d21",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 11, 6, 19, 56, 10, 980, DateTimeKind.Local).AddTicks(8311),
+                            CreatedDate = new DateTime(2022, 11, 8, 19, 8, 13, 635, DateTimeKind.Local).AddTicks(4929),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -344,9 +344,9 @@ namespace BabyKat.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMOT5ZVsJBBcSmxehLKLdg2R8HS+Q1+8IG1H7iA9tQ/g5EnoMURdfiGa6k2u/2x9aw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBkLSR62h97PGaUGOCfk0gN4hGBNwzvUnAMfvh+1Ki+x6Py+KOgBi3tU8T05/Q4EcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b3a0bf7e-9ec7-4cd8-86ae-b85b3e66246e",
+                            SecurityStamp = "81f744bb-f665-409c-a24a-dcda5639568b",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         });
@@ -491,17 +491,13 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Article", b =>
                 {
-                    b.HasOne("BabyKat.Infrastructure.Data.Category", null)
+                    b.HasOne("BabyKat.Infrastructure.Data.User", "User")
                         .WithMany("Articles")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("BabyKat.Infrastructure.Data.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Comment", b =>
@@ -603,8 +599,6 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Category", b =>
                 {
-                    b.Navigation("Articles");
-
                     b.Navigation("Products");
                 });
 
@@ -615,6 +609,8 @@ namespace BabyKat.Infrastructure.Migrations
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.User", b =>
                 {
+                    b.Navigation("Articles");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

@@ -1,4 +1,5 @@
-﻿using BabyKat.Core.Models.Post;
+﻿using BabyKat.Core.Models.Articlesss;
+using BabyKat.Core.Models.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace BabyKat.Core.Contracts
 {
     public interface IArticleService
     {
-        Task AddArticle(PostModel model, string userId);
+        Task AddArticle(ArticleModel model);
 
-        Task DeleteArticle(PostModel model);
+        Task DeleteArticle(ArticleModel model);
 
-        Task<IEnumerable<PostModel>> GetAllArticle();
+        Task<IEnumerable<ArticleModel>> GetAllArticle();
     }
 }

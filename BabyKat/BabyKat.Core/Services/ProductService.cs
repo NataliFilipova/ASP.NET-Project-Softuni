@@ -55,7 +55,7 @@ namespace BabyKat.Core.Services
                 Description = model.Description,
                 ImageUrl = model.ImageUrl,
                 Price = model.Price,
-               
+                
                 CategoryId = model.CategoryId
             };
 
@@ -98,5 +98,42 @@ namespace BabyKat.Core.Services
             await repo.DeleteAsync<Product>(productId);
             await repo.SaveChangesAsync();
         }
+
+        public async Task<ProductModel> GetProduct(int productId)
+        {
+            var product = await repo.GetByIdAsync<Product>(productId);
+            var category = await repo.GetByIdAsync<Category>(product.CategoryId);
+
+            var entity = new ProductModel()
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                ImageUrl = product.ImageUrl,
+                CategoryId = product.CategoryId,
+                Categories = await repo.AllReadonly<Category>().ToListAsync(),
+                CategoryName = category.Name
+        };
+            return entity; 
+        }
+
+        
+
+        public async Task EditProduct(int productId, ProductModel model)
+        {
+            var product = await repo.GetByIdAsync<Product>(productId);
+
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.Price = model.Price;
+            product.ImageUrl = model.ImageUrl;
+            product.CategoryId = model.CategoryId;
+
+            repo.Update(product);
+            await repo.SaveChangesAsync();
+
+        }
+
+       
     }
 }

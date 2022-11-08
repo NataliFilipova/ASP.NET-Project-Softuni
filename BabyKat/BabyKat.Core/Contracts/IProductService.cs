@@ -13,5 +13,9 @@ namespace BabyKat.Core.Contracts
        Task AddProductAsync(ProductModel model);
         Task<IEnumerable<ProductModel>> GetProductsForCategoryAsync(int categoryId);
         Task RemoveProductFromCategory(int productId);
+
+        Task<ProductModel> GetProduct(int productId);
+
+        Task EditProduct(int productId, ProductModel model);
     }
 }

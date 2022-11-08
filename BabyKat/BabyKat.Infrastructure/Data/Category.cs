@@ -13,7 +13,6 @@ namespace BabyKat.Infrastructure.Data
         public Category()
         {
             Products = new List<Product>();
-            Articles = new List<Article>();
         }
 
 
@@ -26,6 +25,5 @@ namespace BabyKat.Infrastructure.Data
 
         public ICollection<Product> Products { get; set; } 
 
-        public ICollection<Article> Articles { get; set; } 
     }
 }

@@ -14,6 +14,7 @@ namespace BabyKat.Infrastructure.Data
         public User()
         {
             Posts = new List<Post>();
+            Articles = new List<Article>();
         }
        
         [Required]
@@ -35,6 +36,7 @@ namespace BabyKat.Infrastructure.Data
 
         public DateTime? DeletedOn { get; set; }
 
+        public List<Article> Articles { get; set; }
         public List<Post> Posts { get; set; } 
     }
 }

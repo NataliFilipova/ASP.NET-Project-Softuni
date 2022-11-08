@@ -6,10 +6,11 @@
 
 <h2 class="text-center"> @ViewBag.Title</h2>
 <hr />
-
 <div class="text-center row">
     @foreach (var product in Model)
     {
+        
+           
         <div class="card col-4" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@product.ImageUrl" alt="Book Image">
