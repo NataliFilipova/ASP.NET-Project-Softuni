@@ -53,6 +53,24 @@ namespace BabyKat.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Finding a gift for new parents and their newborn is a thoughtful gesture. Many people struggle with picking a gift that is unique versus something more practical. But, our baby experts assure you that practicality is the way to go. Adjusting to life with a newborn can be overwhelming, and your friends will appreciate practical gifts that make their lives with a new baby simpler.\r\n\r\nThat's where we come in.\r\n\r\nNo one tests baby products as extensively or comprehensively as we do here at BabyGearLab. And our experts have put together a list of great gift ideas, all of which were quality vetted through our extensive review testing process. We constantly update this list, so it is always fresh, as new and interesting products come on the market and undergo our detailed review and testing.",
+                            ImgUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/74/528883_883_XXXL.jpg",
+                            Title = "Best Baby Gifts of 2022",
+                            UserId = "dea12856-c198-4129-b3f3-b893d8395082"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "While babies might be small, their needs are bigger and grow as they do. In the first few days coming home, you might be able to get by with a handful of items, but as the days progress, you'll need the top baby gear to take care of your little one with ease.\r\n\r\nThat's where BabyGearLab steps in.\r\n\r\nWe've comprehensively tested more baby products than anyone. Our baby experts have created a list of all the baby gear you need to make it through the first year of babyhood. We've included quality vetted baby gear through our extensive testing process in our in-house lab and in the real world. We regularly update this gear list to include the latest and greatest once they've passed our tests for award-winning status.\r\n\r\nHere is our baby gear list, including all the favorites we'd recommend to a friend getting ready to launch into the wonderful world of parenthood.",
+                            ImgUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/58/517361_9155_XXXL.jpg",
+                            Title = "Best Baby Gear of 2022",
+                            UserId = "dea12856-c198-4129-b3f3-b893d8395082"
+                        });
                 });
 
             modelBuilder.Entity("BabyKat.Infrastructure.Data.Category", b =>
@@ -62,6 +80,10 @@ namespace BabyKat.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -76,36 +98,43 @@ namespace BabyKat.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514019_1219_XL.jpg",
                             Name = "Strollers"
                         },
                         new
                         {
                             Id = 2,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/58/517361_9155_XXXL.jpg",
                             Name = "Car Seats"
                         },
                         new
                         {
                             Id = 3,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/12/522701_27072_XXXL.jpg",
                             Name = "Nursery"
                         },
                         new
                         {
                             Id = 4,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/44/525884_21115_XXXL.jpg",
                             Name = "Health"
                         },
                         new
                         {
                             Id = 5,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/92/520712_12268_XXXL.jpg",
                             Name = "Feeding"
                         },
                         new
                         {
                             Id = 6,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/33/524835_31524_XXXL.jpg",
                             Name = "Diaper"
                         },
                         new
                         {
                             Id = 7,
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg",
                             Name = "Soothe"
                         });
                 });
@@ -206,6 +235,10 @@ namespace BabyKat.Infrastructure.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("money");
 
+                    b.Property<decimal>("Rating")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -220,7 +253,8 @@ namespace BabyKat.Infrastructure.Migrations
                             Description = "Pros: Rubber base, hold handle, suitable for multiple ages. Cons: Shallow seat, low splash guardSimple, sturdy, and easy to clean, this toddler toilet that has exactly what you need and no more.",
                             ImageUrl = "https://m.media-amazon.com/images/I/71XDXNt9n5L._SL1500_.jpg",
                             Name = "OXO Tot Potty Chair",
-                            Price = 25.99m
+                            Price = 25.99m,
+                            Rating = 0.00m
                         },
                         new
                         {
@@ -229,7 +263,28 @@ namespace BabyKat.Infrastructure.Migrations
                             Description = "Pros: Deep bowl, convenient size, breeze to cleanCons: Limited age range, backlessSmall and functional potty that is perfect for budget minded parents",
                             ImageUrl = "https://m.media-amazon.com/images/I/61+uuyDhAcL._SL1500_.jpg",
                             Name = "BabyBjörn Smart Potty",
-                            Price = 22.99m
+                            Price = 22.99m,
+                            Rating = 0.00m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 6,
+                            Description = "Adjustable, easy storage, one piece. Toilet needed, assistance needed. Space saving and portable potty seat great for small bathrooms and travel.",
+                            ImageUrl = "https://m.media-amazon.com/images/I/716ccNgQUSL._SX466_.jpg",
+                            Name = "BabyBjörn Toilet Trainer",
+                            Price = 34.99m,
+                            Rating = 0.00m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 6,
+                            Description = "Secure sitting area, soft on bottom, easy to store.Not for every toilet, noticeable wear over time.Cushy on-toilet trainer contoured to fit little bums.",
+                            ImageUrl = "https://m.media-amazon.com/images/I/716ccNgQUSL._SX466_.jpg",
+                            Name = "Dreambaby Soft Touch Potty Seat",
+                            Price = 24.98m,
+                            Rating = 0.00m
                         });
                 });
 
@@ -330,9 +385,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bf11f6aa-ce73-4d20-a67e-158f7fc55d21",
+                            ConcurrencyStamp = "28acb5a0-a1f1-4447-ac1b-1ea05c8a568a",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 11, 8, 19, 8, 13, 635, DateTimeKind.Local).AddTicks(4929),
+                            CreatedDate = new DateTime(2022, 11, 12, 18, 6, 52, 810, DateTimeKind.Local).AddTicks(478),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -342,9 +397,9 @@ namespace BabyKat.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBkLSR62h97PGaUGOCfk0gN4hGBNwzvUnAMfvh+1Ki+x6Py+KOgBi3tU8T05/Q4EcQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEj4bTtZy33XoUeLq0nfNTsm/LS6OTd0tECDsK/5+VRaLhMCfBagl98oeSgJhizpOw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "81f744bb-f665-409c-a24a-dcda5639568b",
+                            SecurityStamp = "6d259600-95ff-4dc7-b042-647e2e73eee9",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         });

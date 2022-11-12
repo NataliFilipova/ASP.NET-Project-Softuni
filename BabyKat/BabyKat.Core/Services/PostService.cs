@@ -1,5 +1,5 @@
 ﻿using BabyKat.Core.Contracts;
-using BabyKat.Core.Models.Post;
+using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;

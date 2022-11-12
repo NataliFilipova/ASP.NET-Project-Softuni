@@ -32,7 +32,7 @@ namespace BabyKat.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            var model = new ProductModel()
+             var model = new ProductModel()
             {
                 Categories = await productService.GetCategoriesAsync()
             };
@@ -42,23 +42,12 @@ namespace BabyKat.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ProductModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            try
-            {
+           
+          
                 await productService.AddProductAsync(model);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception)
-            {
-                ModelState.AddModelError("", "Something went wrong with creating a book.");
-
-                return View(model);
-            }
+                return RedirectToAction(nameof(All));
+           
         }
 
         public async Task<IActionResult> RemoveProduct(int productId)

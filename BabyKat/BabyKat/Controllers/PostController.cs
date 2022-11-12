@@ -1,5 +1,5 @@
 ﻿using BabyKat.Core.Contracts;
-using BabyKat.Core.Models.Post;
+using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;

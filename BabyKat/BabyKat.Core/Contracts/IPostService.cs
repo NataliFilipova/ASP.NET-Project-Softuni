@@ -1,4 +1,4 @@
-﻿using BabyKat.Core.Models.Post;
+﻿using BabyKat.Core.Models.Postt;
 using System;
 using System.Collections.Generic;
 using System.Linq;

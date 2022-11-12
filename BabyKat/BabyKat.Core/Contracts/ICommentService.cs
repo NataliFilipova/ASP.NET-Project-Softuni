@@ -1,5 +1,5 @@
-﻿using BabyKat.Core.Models.Comment;
-using BabyKat.Core.Models.Post;
+﻿using BabyKat.Core.Models.Commentt;
+using BabyKat.Core.Models.Postt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace BabyKat.Core.Contracts
     {
         Task AddComment(CommentModel model);
 
-        Task DeletePost(PostModel model);
+        Task<int> DeleteComment(int commentId);
 
         Task<IEnumerable<PostModel>> GetAllPosts();
     }

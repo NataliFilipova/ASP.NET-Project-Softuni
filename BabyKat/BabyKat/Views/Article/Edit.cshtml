@@ -1,0 +1,18 @@
+﻿@using BabyKat.Core.Models.Articlesss
+@model ArticleWithCommentsModel
+
+@{
+    ViewBag.Title = "Edit Article";
+}
+
+<h2 class="text-center"> @ViewBag.Title</h2>
+<hr />
+
+
+
+<partial name="_ArticlePartial" model="@Model" />
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

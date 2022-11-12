@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2jsVmNaSywCzP6DDk2E6pUiIPAMviuT7BExzACsCEOI=",
+  "Hash": "vxotjhe27yYhfPffOjbiZZs0xRibotNlF+mRTLSpIds=",
   "Source": "BabyKat",
   "BasePath": "_content/BabyKat",
   "Mode": "Default",
@@ -1071,6 +1071,40 @@
       "OriginalItemSpec": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BabyKat.bundle.scp.css"
     },
     {
+      "Identity": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\css\\bootstrap.css",
+      "SourceId": "BabyKat",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\",
+      "BasePath": "_content/BabyKat",
+      "RelativePath": "css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\css\\bootstrap.min.css",
+      "SourceId": "BabyKat",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\",
+      "BasePath": "_content/BabyKat",
+      "RelativePath": "css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
+    },
+    {
       "Identity": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\css\\site.css",
       "SourceId": "BabyKat",
       "SourceType": "Discovered",
@@ -1086,23 +1120,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\css\\style.css",
-      "SourceId": "BabyKat",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\",
-      "BasePath": "_content/BabyKat",
-      "RelativePath": "css/style.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\wwwroot\\favicon.ico",

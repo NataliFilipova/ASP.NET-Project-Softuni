@@ -27,6 +27,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Article/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Article/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZVxSZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Category/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -69,6 +77,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_ArticlePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcnRpY2xlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Views/Shared/_CommentPartial.cshtml]

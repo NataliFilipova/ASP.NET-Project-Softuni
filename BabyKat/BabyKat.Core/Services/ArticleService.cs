@@ -1,6 +1,6 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Core.Models.Articlesss;
-using BabyKat.Core.Models.Post;
+using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
@@ -22,14 +22,17 @@ namespace BabyKat.Core.Services
             repo = _repo;
         }
     
-        public async Task AddArticle(ArticleModel model)
+        public async Task AddArticle(ArticleModel model, string userId)
         {
+            var user = await repo.GetByIdAsync<User>(userId);
             var entity = new Article()
             {
                 Title = model.Title,
                 Description = model.Description,
+                ImgUrl = model.ImageUrl,
+                User = user,
+                UserId = userId
                 
-              
             };
             
             await repo.AddAsync<Article>(entity);
@@ -37,9 +40,22 @@ namespace BabyKat.Core.Services
             await repo.SaveChangesAsync();
         }
 
-        public Task DeleteArticle(ArticleModel model)
+        public async Task DeleteArticle(int articleId)
         {
-            throw new NotImplementedException();
+            await repo.DeleteAsync<Article>(articleId);
+            await repo.SaveChangesAsync();
+        }
+
+        public async Task EditArticle(int articleId, ArticleWithCommentsModel model)
+        {
+            var article = await repo.GetByIdAsync<Article>(articleId);
+
+            article.Title = model.Title;
+            article.Description = model.Description;
+            article.ImgUrl = model.ImageUrl;
+          
+            repo.Update(article);
+            await repo.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ArticleModel>> GetAllArticle()
@@ -50,9 +66,28 @@ namespace BabyKat.Core.Services
                Id = p.Id,
                Title = p.Title,
                Description= p.Description,
+               ImageUrl = p.ImgUrl
               
             }).ToListAsync();
 
+        }
+
+        public async Task<ArticleWithCommentsModel> GetArticle(int articleId)
+        {
+            var article = await repo.GetByIdAsync<Article>(articleId);
+            var comments = repo.AllReadonly<Comment>().Where(p => p.ArticleId == articleId).ToList();
+
+            var entity = new ArticleWithCommentsModel()
+            {
+                Description = article.Description,
+                Title = article.Title,
+                Comments = comments,
+                Id = articleId,
+                UserId = article.UserId,
+                User = article.User,
+                ImageUrl =article.ImgUrl
+            };
+            return entity;
         }
     }
 }

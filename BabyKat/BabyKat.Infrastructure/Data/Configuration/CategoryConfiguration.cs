@@ -22,37 +22,44 @@ namespace BabyKat.Infrastructure.Data.Configuration
                 new Category
                 {
                     Id = 1,
-                    Name = "Strollers"
+                    Name = "Strollers",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514019_1219_XL.jpg"
                 },
                 new Category
                 {
                      Id = 2,
-                    Name = "Car Seats"
+                    Name = "Car Seats",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/58/517361_9155_XXXL.jpg"
                 },
                 new Category
                 {
                      Id = 3,
-                    Name = "Nursery"
+                    Name = "Nursery",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/12/522701_27072_XXXL.jpg"
                 },
                 new Category
                 {
                      Id = 4,
-                    Name = "Health"
+                    Name = "Health",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/44/525884_21115_XXXL.jpg"
                 },
                 new Category
                 {
                      Id = 5,
-                    Name = "Feeding"
+                    Name = "Feeding",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/92/520712_12268_XXXL.jpg"
                 },
                 new Category
                 {
                      Id = 6,
-                    Name = "Diaper"
+                    Name = "Diaper",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/33/524835_31524_XXXL.jpg"
                 },
                  new Category
                 {
                      Id = 7,
-                    Name = "Soothe"
+                    Name = "Soothe",
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg"
                 }
             };
             return categories;

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProductModel>
+﻿@using BabyKat.Core.Models._Product
+@model IEnumerable<ProductRatingModel>
 
 
 @{
@@ -18,7 +19,13 @@
 
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
-                <p class="mb-0">Price: @product.Description$</p>
+                <p class="mb-0">Description: @product.Description$</p>
+                <p class="mb-0">Rating: @product.Rating</p>
+               
+             
+                <p class="mb-0">Rating: @product.$</p>
+
+                <p class="mb-0">Price: @product.$</p>
             </div>
 
             <a asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id" class="btn btn-outline-success">Delete</a>
@@ -29,4 +36,25 @@
           
         </div>
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

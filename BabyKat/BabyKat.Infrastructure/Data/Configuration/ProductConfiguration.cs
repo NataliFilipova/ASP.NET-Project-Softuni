@@ -29,7 +29,8 @@ namespace BabyKat.Infrastructure.Data.Configuration
                     "Cons: Shallow seat, low splash guard" +
                     "Simple, sturdy, and easy to clean, this toddler toilet that has exactly what you need and no more.",
                     CategoryId = 6,
-                    ImageUrl = "https://m.media-amazon.com/images/I/71XDXNt9n5L._SL1500_.jpg"
+                    ImageUrl = "https://m.media-amazon.com/images/I/71XDXNt9n5L._SL1500_.jpg",
+                    Rating = 0.00m
                 },
                new Product
                 {
@@ -41,8 +42,30 @@ namespace BabyKat.Infrastructure.Data.Configuration
                     "Cons: Limited age range, backless" +
                     "Small and functional potty that is perfect for budget minded parents",
                     CategoryId = 6,
-                    ImageUrl = "https://m.media-amazon.com/images/I/61+uuyDhAcL._SL1500_.jpg"
+                    ImageUrl = "https://m.media-amazon.com/images/I/61+uuyDhAcL._SL1500_.jpg",
+                    Rating = 0.00m
                 },
+               new Product
+                {
+                    Id = 3,
+                    Name = "BabyBjörn Toilet Trainer",
+                    Price = 34.99m,
+                    Description = "Adjustable, easy storage, one piece. Toilet needed, assistance needed. Space saving and portable potty seat great for small bathrooms and travel.",
+                    CategoryId = 6,
+                    ImageUrl = "https://m.media-amazon.com/images/I/716ccNgQUSL._SX466_.jpg",
+                    Rating = 0.00m
+                },
+                 new Product
+                {
+                    Id = 4,
+                    Name = "Dreambaby Soft Touch Potty Seat",
+                    Price = 24.98m,
+                    Description = "Secure sitting area, soft on bottom, easy to store.Not for every toilet, noticeable wear over time.Cushy on-toilet trainer contoured to fit little bums.",
+                    CategoryId = 6,
+                    ImageUrl = "https://m.media-amazon.com/images/I/716ccNgQUSL._SX466_.jpg",
+                    Rating = 0.00m
+                },
+
             };
             return products;
         }

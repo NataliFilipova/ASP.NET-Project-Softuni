@@ -1,6 +1,6 @@
 ﻿using BabyKat.Core.Contracts;
-using BabyKat.Core.Models.Comment;
-using BabyKat.Core.Models.Post;
+using BabyKat.Core.Models.Commentt;
+using BabyKat.Core.Models.Postt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
 using System;
@@ -34,10 +34,18 @@ namespace BabyKat.Core.Services
             await repo.SaveChangesAsync();
         }
 
-        public Task DeletePost(PostModel model)
+        public async Task<int> DeleteComment(int commentId)
         {
-            throw new NotImplementedException();
+            var entity = await repo.GetByIdAsync<Comment>(commentId);
+            int articleId = entity.ArticleId;
+            await repo.DeleteAsync<Comment>(commentId);
+            await repo.SaveChangesAsync();
+            return articleId;
+
+
         }
+
+      
 
         public Task<IEnumerable<PostModel>> GetAllPosts()
         {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProductModel>
+﻿@using BabyKat.Core.Models._Product
+@model IEnumerable<ProductRatingModel>
 
 @{
     ViewBag.Title = "Categories";
@@ -19,7 +20,12 @@
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
                 <p class="mb-0">Price: @product.Description</p>
-               
+                <p class="mb-0">Rating: @product.Rating</p>
+                <a asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id" class="btn btn-outline-success">Delete</a>
+
+                <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
+
+                <a asp-controller="Product" asp-action="Edit" asp-route-productId="@product.Id" class="btn btn-outline-success">Edit Product</a>
 
             </div>
 

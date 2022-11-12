@@ -27,7 +27,7 @@ namespace BabyKat.Core.Services
                  {
                      Id = p.Id,
                      Name = p.Name,
-                    
+                     ImageUrl = p.ImageUrl,
                      Products = p.Products
                      
                  })

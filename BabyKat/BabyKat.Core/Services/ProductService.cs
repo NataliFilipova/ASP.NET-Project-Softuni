@@ -1,4 +1,5 @@
 ﻿using BabyKat.Core.Contracts;
+using BabyKat.Core.Models._Product;
 using BabyKat.Core.Models.Categoryy;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
@@ -26,20 +27,22 @@ namespace BabyKat.Core.Services
 
                 
         }
-        public async Task<IEnumerable<ProductModel>> GetProductsForCategoryAsync(int categoryId)
+        public async Task<IEnumerable<ProductRatingModel>> GetProductsForCategoryAsync(int categoryId)
         {
             var category = await repo.GetByIdAsync<Category>(categoryId);
 
             return await repo.AllReadonly<Product>()
                 .OrderByDescending(p => p.Id)
                 .Where(p => p.CategoryId == category.Id)
-                .Select(p => new ProductModel()
+                .Select(p => new ProductRatingModel()
                 {
                     Id = p.Id,
                     ImageUrl = p.ImageUrl,
                     Name = p.Name,
                     Price = p.Price,
-                    Description = p.Description
+                    Description = p.Description,
+                    Posts = p.Posts,
+                    Rating = p.Posts.Count == 0 ? 0.00m : p.Posts.Average(p => p.Rating)
 
                 })
                  
@@ -77,19 +80,26 @@ namespace BabyKat.Core.Services
                 .ToListAsync();
         }
 
-          public async Task<IEnumerable<ProductModel>> GetAllAsync()
-            {
-            return await repo.AllReadonly<Product>()
-             .Select(p => new ProductModel()
+          public async Task<IEnumerable<ProductRatingModel>> GetAllAsync()
+            { 
+            
+           return  await repo.AllReadonly<Product>()
+
+
+
+             .Select(p => new ProductRatingModel()
              {
                  Id = p.Id,
                  Name = p.Name,
                  Description = p.Description,
                  ImageUrl= p.ImageUrl, 
                  Price = p.Price,
-                 CategoryId = p.CategoryId
+                 CategoryId = p.CategoryId,
+                 Posts = p.Posts, 
+                 Rating = p.Posts.Count == 0 ? 0.00m : p.Posts.Average(p => p.Rating)
              }).ToListAsync();
 
+            
 
         }
 
@@ -99,12 +109,12 @@ namespace BabyKat.Core.Services
             await repo.SaveChangesAsync();
         }
 
-        public async Task<ProductModel> GetProduct(int productId)
+        public async Task<ProductRatingModel> GetProduct(int productId)
         {
             var product = await repo.GetByIdAsync<Product>(productId);
             var category = await repo.GetByIdAsync<Category>(product.CategoryId);
 
-            var entity = new ProductModel()
+            var entity = new ProductRatingModel()
             {
                 Name = product.Name,
                 Description = product.Description,
@@ -112,8 +122,11 @@ namespace BabyKat.Core.Services
                 ImageUrl = product.ImageUrl,
                 CategoryId = product.CategoryId,
                 Categories = await repo.AllReadonly<Category>().ToListAsync(),
-                CategoryName = category.Name
-        };
+                CategoryName = category.Name,
+                Rating = product.Posts.Average(p => p.Rating)
+                
+
+             };
             return entity; 
         }
 

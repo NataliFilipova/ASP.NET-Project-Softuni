@@ -14,6 +14,6 @@ namespace BabyKat.Core.Models.Categoryy
 
         public ICollection<Product> Products { get; set; } = new List<Product>();
 
-   
+        public string ImageUrl { get; set; } = null!;
     }
 }

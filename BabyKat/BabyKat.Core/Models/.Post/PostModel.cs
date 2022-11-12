@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static BabyKat.Infrastructure.GlobalConstants.PostConstants;
 
-namespace BabyKat.Core.Models.Post
+namespace BabyKat.Core.Models.Postt
 {
     public class PostModel
     {

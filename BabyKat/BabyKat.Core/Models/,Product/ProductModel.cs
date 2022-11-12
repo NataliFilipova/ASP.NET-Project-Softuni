@@ -17,7 +17,7 @@ namespace BabyKat.Core.Models.Productt
         public string CategoryName { get; set; } = null!;
 
         [Required]
-        [Range(typeof(decimal), "0.0", "10.0", ConvertValueInInvariantCulture = true)] //Put the constants instead. 
+        [Range(typeof(decimal), "0.0", "15000.0", ConvertValueInInvariantCulture = true)] //Put the constants instead. 
         public decimal Price { get; set; }
 
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();

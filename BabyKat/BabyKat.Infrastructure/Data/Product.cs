@@ -40,5 +40,9 @@ namespace BabyKat.Infrastructure.Data
         public string ImageUrl { get; set; } = null!;
 
         public ICollection<Post> Posts;
+
+        [Required]
+        [Precision(18, 2)]
+        public decimal Rating { get; set; }
     }
 }

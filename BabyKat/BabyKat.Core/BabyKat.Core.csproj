@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Models\.Article\ArticleModel.cs" />
+    <Compile Include="Models\.Article\ArticleWithCommentsModel.cs" />
     <Compile Include="Models\.Category\CategoryAllModel.cs" />
     <Compile Include="Models\.Post\PostModel.cs" />
   </ItemGroup>

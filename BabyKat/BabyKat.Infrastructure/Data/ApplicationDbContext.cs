@@ -36,6 +36,7 @@ namespace BabyKat.Infrastructure.Data
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
+            builder.ApplyConfiguration(new ArticleConfiguration());
 
             base.OnModelCreating(builder);
         }
