@@ -37,7 +37,8 @@ namespace BabyKat.Infrastructure.Migrations
 
                     b.Property<string>("ImgUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -83,7 +84,8 @@ namespace BabyKat.Infrastructure.Migrations
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -385,9 +387,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "28acb5a0-a1f1-4447-ac1b-1ea05c8a568a",
+                            ConcurrencyStamp = "52f466b4-e24e-4179-bac8-e90cb86c3ace",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 11, 12, 18, 6, 52, 810, DateTimeKind.Local).AddTicks(478),
+                            CreatedDate = new DateTime(2022, 11, 18, 21, 3, 49, 185, DateTimeKind.Local).AddTicks(1293),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -397,9 +399,9 @@ namespace BabyKat.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEj4bTtZy33XoUeLq0nfNTsm/LS6OTd0tECDsK/5+VRaLhMCfBagl98oeSgJhizpOw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC9GE181zBPznwOLcVk0wLQXhckGMQdaorK7gK363pQL2mjXdEDRsM8I0Bbiwt/DNQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d259600-95ff-4dc7-b042-647e2e73eee9",
+                            SecurityStamp = "7d83c379-ce1c-43bd-a2c8-ea093e9e9ae3",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         });
@@ -430,6 +432,20 @@ namespace BabyKat.Infrastructure.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            ConcurrencyStamp = "247cd6c4-24b7-48f6-91b5-1fcf86a235f5",
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            ConcurrencyStamp = "abaa6ad5-17fd-4fe5-819d-3d0fad722055",
+                            Name = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -5,8 +5,9 @@ using BabyKat.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace BabyKat.Controllers
+namespace BabyKat.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ArticleController : Controller
     {
         private readonly IArticleService articleService;
@@ -43,8 +44,8 @@ namespace BabyKat.Controllers
             await articleService.AddArticle(model, userId);
             return RedirectToAction("All", "Post");
 
-            
-            
+
+
         }
 
         public async Task<IActionResult> RemoveArticle(int articleId)

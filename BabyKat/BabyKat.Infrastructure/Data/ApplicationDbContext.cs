@@ -1,10 +1,11 @@
 ﻿using BabyKat.Infrastructure.Data.Configuration;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BabyKat.Infrastructure.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -37,6 +38,7 @@ namespace BabyKat.Infrastructure.Data
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new ArticleConfiguration());
+            builder.ApplyConfiguration(new RoleConfiguration());
 
             base.OnModelCreating(builder);
         }

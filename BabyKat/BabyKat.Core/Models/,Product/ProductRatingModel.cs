@@ -14,26 +14,14 @@ namespace BabyKat.Core.Models._Product
     public class ProductRatingModel
     {
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(NameMaxLength)]
         public string Name { get; set; } = null!;
-
-        [Required]
-        [Column(TypeName = "money")]
-        [Precision(18, 2)]
+       
         public decimal Price { get; set; }
-
-        [Required]
-        [StringLength(DescriptionMaxLength)]
+      
         public string Description { get; set; } = null!;
-
-        [Required]
+       
         public int CategoryId { get; set; }
-
-
-        [Required]
-        [StringLength(ImageUrlMaxLength)]
+      
         public string ImageUrl { get; set; } = null!;
 
         public ICollection<Post> Posts = new List<Post>();

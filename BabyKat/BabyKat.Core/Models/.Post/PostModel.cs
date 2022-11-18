@@ -17,26 +17,31 @@ namespace BabyKat.Core.Models.Postt
         public int Id { get; set; }
 
         [Required]
-        [StringLength(TitleMaxLength)]
+        [StringLength(TitleMaxLength, MinimumLength = TitleMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Title { get; set; } = null!;
 
         [Required]
+        [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
+        public string Description { get; set; } = null!;
+
+        [Required]
+        [Display(Name = "Rating")]
+        [Range(0.00, RatingMax, ErrorMessage = "Price per month must be a positive number and less than {2} leva")]
+
+        public decimal Rating { get; set; }
+
+        [Required]
         public string UserId { get; set; } = null!;
+
 
         [ForeignKey(nameof(UserId))]
         [Required]
         public User User { get; set; } = null!;
 
-        [Required]
-        [Precision(18, 2)]
-
-        public decimal Rating { get; set; }
 
         public int ProductId { get; set; }
 
 
-        [Required]
-        public string Description { get; set; } = null!;
         [Required]
         public Product Product { get; set; } = null!;
     }

@@ -1,19 +1,22 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Services;
+using BabyKat.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using System.Security.Claims;
 using System.Security.Permissions;
 
-namespace BabyKat.Controllers
+namespace BabyKat.Areas.Users.Controllers
 {
+    [Area("Users")]
     public class PostController : Controller
     {
+      
         private readonly IPostService postService;
         public PostController(IPostService _postService)
         {
-            this.postService = _postService;
+            postService = _postService;
         }
 
         [HttpGet]
@@ -38,11 +41,20 @@ namespace BabyKat.Controllers
 
         [HttpPost]
 
-        public async Task <IActionResult> Add(PostModel model)
+        public async Task<IActionResult> Add(PostModel model)
         {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            await postService.AddPost(model, userId);
-            return RedirectToAction("All","Post");
+
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                await postService.AddPost(model, userId);
+                return RedirectToAction("All", "Post");
+            }
+            catch (Exception e)
+            {
+                var erroMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", erroMassage);
+            }
         }
     }
 }

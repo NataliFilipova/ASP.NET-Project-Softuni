@@ -27,4 +27,9 @@
     <ProjectReference Include="..\BabyKat.Core\BabyKat.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\IdentityModels\" />
+  </ItemGroup>
+
 </Project>

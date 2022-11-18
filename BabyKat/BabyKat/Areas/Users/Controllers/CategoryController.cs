@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace BabyKat.Controllers
+
+
+namespace BabyKat.Areas.Users.Controllers
 {
+    [Area("Users")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
@@ -19,7 +22,7 @@ namespace BabyKat.Controllers
             return View(model);
         }
 
-      
+
 
     }
 }

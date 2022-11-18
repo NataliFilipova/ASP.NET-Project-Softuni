@@ -17,6 +17,8 @@ namespace BabyKat.Infrastructure.Data
         public string Title { get; set; } = null!;
 
 
+
+        [StringLength(ImageUrlMaxLength)]
         public string ImgUrl { get; set; }
         [Required]
         public string UserId { get; set; }

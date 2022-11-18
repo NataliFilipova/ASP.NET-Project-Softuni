@@ -5,11 +5,9 @@ namespace BabyKat.Core.Models.Categoryy
 {
     public class CategoryAllModel
     {
-        [Key]
+    
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(CategoryNameMaxLength)]
         public string Name { get; set; } = null!;
 
         public ICollection<Product> Products { get; set; } = new List<Product>();

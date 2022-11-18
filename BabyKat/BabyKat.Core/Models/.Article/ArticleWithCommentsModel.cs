@@ -30,6 +30,9 @@ namespace BabyKat.Core.Models.Articlesss
         [Required]
         public User User { get; set; } = null!;
 
+        [Required]
+        [Display(Name = "Image URL")]
+       
         public string ImageUrl { get; set; } = null!;
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 

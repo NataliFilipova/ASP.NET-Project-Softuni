@@ -20,6 +20,7 @@ builder.Services.AddDefaultIdentity<User>(options =>
     options.Password.RequiredLength = 4;
 
 })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
@@ -49,7 +50,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Users}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

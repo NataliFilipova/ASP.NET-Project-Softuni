@@ -9,12 +9,15 @@ namespace BabyKat.Core.Models.Articlesss
     {
         [Key]
         public int Id { get; set; }
+
+
         [Required]
-        [StringLength(TitleMaxLength)]
+        [StringLength(TitleMaxLength, MinimumLength = TitleMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Title { get; set; } = null!;
 
         [Required]
-        [StringLength(DescriptionMaxLength)]
+        [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
+
         public string Description { get; set; } = null!;
 
         [Required]
@@ -24,6 +27,9 @@ namespace BabyKat.Core.Models.Articlesss
         [Required]
         public User User { get; set; } = null!;
 
+        [Required]
+        [Display(Name = "Image URL")]
+      
         public string ImageUrl { get; set; } = null!;
 
       //  public Product Product { get; set; } 

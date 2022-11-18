@@ -21,11 +21,11 @@ namespace BabyKat.Core.Models.Commentt
         public Article Article { get; set; } = null!;
 
         [Required]
-        [StringLength(DescriptionMaxLength)]
+        [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Description { get; set; } = null!;
 
         [Required]
-        [StringLength(AuthorMaxLength)]
+        [StringLength(AuthorMaxLength, MinimumLength = AuthorMinLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Author { get; set; } = null!;
     }
 }

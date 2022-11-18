@@ -18,7 +18,7 @@
                 <h5 class="card-title mt-1">@category.Name</h5>
             <img class="card-img-top" style="width: 18rem;"
              src="@category.ImageUrl" alt="Post Image">
-            <form class="input-group-sm" asp-controller="Product" asp-action="ShowCategory" asp-route-categoryId="@category.Id">
+            <form class="input-group-sm" asp-controller="UserProduct" asp-action="ShowCategory" asp-route-categoryId="@category.Id">
                 <input type="submit" value="Show Category" class="fs-6 btn btn-success mb-3 p-2" />
             </form>
 

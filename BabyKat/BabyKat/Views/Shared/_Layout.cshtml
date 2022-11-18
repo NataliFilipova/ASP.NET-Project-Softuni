@@ -50,8 +50,8 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>  
-                                <span class="visually-hidden">(current)</span>
+                            <a class="nav-link active" asp-area="Users" asp-controller="Home" asp-action="Index">Home</a>
+                            <span class="visually-hidden">(current)</span>
                         
                         </li>
                   
@@ -59,29 +59,31 @@
                             <a class="nav-link" asp-area="" asp-controller="Product" asp-action="All">All Products</a>
                         </li>*@
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Category" asp-action="All">Categories</a>
+                            <a class="nav-link" asp-area="Users" asp-controller="Category" asp-action="All">Categories</a>
                         </li>
 
                        
                          <li class="nav-item">
-                             <a class="nav-link" asp-area="" asp-controller="Post" asp-action="All">Your opinion</a>
+                             <a class="nav-link" asp-area="Users" asp-controller="Post" asp-action="All">Your opinion</a>
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link " asp-area="" asp-controller="Article" asp-action="All"> Articles</a>
+                        <a class="nav-link " asp-area="Users" asp-controller="UserArticle" asp-action="All"> Articles</a>
                         </li>
 
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manage Website</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Article" asp-action="Add">Add Article</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Add">Add Product</a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manage Website</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="" asp-controller="Article" asp-action="Add">Add Article</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Add">Add Product</a>
-                               
-                                <div class="dropdown-divider"></div>
-                              
-                            </div>
-                        </li>
+                                    <div class="dropdown-divider"></div>
+
+                                </div>
+                            </li>
+                        }
                     </ul>
 
                     <partial name="_LoginPartial" />

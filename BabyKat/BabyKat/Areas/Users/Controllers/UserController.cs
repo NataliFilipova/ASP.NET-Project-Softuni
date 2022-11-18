@@ -6,21 +6,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Library.Controllers
+namespace BabyKat.Areas.Users.Controllers
 {
+    [Area("Users")]
     [Authorize]
     public class UserController : Controller
     {
         private readonly UserManager<User> userManager;
 
         private readonly SignInManager<User> signInManager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         public UserController(
             UserManager<User> _userManager,
-            SignInManager<User> _signInManager)
+            SignInManager<User> _signInManager, RoleManager<IdentityRole> _roleManager) 
         {
             userManager = _userManager;
             signInManager = _signInManager;
+            roleManager = _roleManager;
         }
 
         [HttpGet]
@@ -59,6 +62,11 @@ namespace Library.Controllers
 
             if (result.Succeeded)
             {
+                var role = roleManager.FindByNameAsync("User").Result;
+                if (role != null)
+                {
+                    await userManager.AddToRoleAsync(user, role.Name);
+                }
                 return RedirectToAction("Login", "User");
             }
 

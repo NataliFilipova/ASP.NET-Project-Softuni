@@ -22,7 +22,7 @@ namespace BabyKat.Infrastructure.Data
         [Required]
         [StringLength(CategoryNameMaxLength)]
         public string Name { get; set; } = null!;
-
+        [StringLength(ImageUrlMaxLength)]
         public string ImageUrl { get; set; } = null!;
         public ICollection<Product> Products { get; set; } 
 

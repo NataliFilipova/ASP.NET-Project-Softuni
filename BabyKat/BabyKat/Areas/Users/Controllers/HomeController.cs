@@ -3,17 +3,18 @@ using BabyKat.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BabyKat.Controllers
+namespace BabyKat.Areas.Users.Controllers
 {
+    [Area("Users")]
     public class HomeController : Controller
     {
-
+       
         private readonly IProductService productService;
-        
+
         public HomeController(IProductService _productService, ICategoryService _categoryService)
         {
             productService = _productService;
-           
+
         }
         public async Task<IActionResult> Index()
         {
@@ -21,7 +22,7 @@ namespace BabyKat.Controllers
             return View(model);
         }
 
- 
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

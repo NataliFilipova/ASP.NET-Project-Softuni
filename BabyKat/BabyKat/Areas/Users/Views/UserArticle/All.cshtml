@@ -1,0 +1,39 @@
+﻿@using BabyKat.Core.Models.Articlesss
+@model IEnumerable<ArticleModel>
+
+
+@{
+    ViewBag.Title = "All Articles";
+}
+
+<h2 class="text-center"> @ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var article in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <img class="card-img-top" style="width: 18rem;"
+             src="@article.ImageUrl" alt="Post Image">
+            <div class="card-body">
+
+                <h5 class="card-title mt-1">@article.Title</h5>
+              
+            </div>
+
+
+
+       
+
+            <a asp-controller="UserArticle" asp-action="Read" asp-route-articleId="@article.Id" class="btn btn-outline-success">Read</a>
+
+            @*<a asp-controller="Comment" asp-action="Add" asp-route-articleId="@article.Id" class="btn btn-outline-success">Add Comment</a>*@
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-controller="Article" asp-action="RemoveArticle" asp-route-articleId="@article.Id" class="btn btn-outline-success">Delete</a>
+
+                <a asp-controller="Article" asp-action="Edit" asp-route-articleId="@article.Id" class="btn btn-outline-success">Edit</a>
+            }
+        </div>
+    }
+</div>

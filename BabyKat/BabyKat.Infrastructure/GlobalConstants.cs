@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace BabyKat.Infrastructure
             public const int TitleMaxLength = 50;
             public const int TitleMinLength = 5;
 
+            public const int ImageUrlMaxLength = 400;
+
             public const int DescriptionMaxLength = 6000;
             public const int DescriptionMinLength = 500;
 
@@ -20,6 +23,7 @@ namespace BabyKat.Infrastructure
         }
         public class CategoryConstants
         {
+            public const int ImageUrlMaxLength = 400;
             public const int CategoryNameMaxLength = 50;
             public const int CategoryNameMinLength = 3;
         }
@@ -44,6 +48,8 @@ namespace BabyKat.Infrastructure
             public const int DescriptionMaxLength = 5000;
             public const int DescriptionMinLength = 40;
 
+            public const int RatingMax = 6;
+
 
         }
         public class ProductConstants
@@ -55,6 +61,8 @@ namespace BabyKat.Infrastructure
             public const int DescriptionMaxLength = 1300;
 
             public const int ImageUrlMaxLength = 200;
+
+            public const int PriceMax = 10000;
         }
 
         public class UserConstants
