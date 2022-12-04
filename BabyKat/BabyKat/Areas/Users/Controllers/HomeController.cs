@@ -18,6 +18,12 @@ namespace BabyKat.Areas.Users.Controllers
         }
         public async Task<IActionResult> Index()
         {
+
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Admin", new { area = "Admin" });
+            }
+
             var model = await productService.LastThreeProducts();
             return View(model);
         }

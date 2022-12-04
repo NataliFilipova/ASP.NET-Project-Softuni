@@ -3,11 +3,13 @@ using BabyKat.Core.Models.Productt;
 using BabyKat.Core.Contracts;
 using BabyKat.Core.Services;
 using BabyKat.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace BabyKat.Areas.Admin.Controllers
 {
     [Area("Admin")]
-   
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
 

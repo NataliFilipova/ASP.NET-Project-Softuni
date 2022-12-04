@@ -34,7 +34,11 @@ namespace BabyKat.Core.Services
                   
                  .ToListAsync();
         }
+        public async Task RemoveCategory(int categoryId)
+        {
+            await repo.DeleteAsync<Category>(categoryId);
+            await repo.SaveChangesAsync();
+        }
 
-       
     }
 }

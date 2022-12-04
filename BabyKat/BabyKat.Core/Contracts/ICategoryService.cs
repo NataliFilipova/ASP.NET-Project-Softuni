@@ -13,6 +13,8 @@ namespace BabyKat.Core.Contracts
     {
         Task<IEnumerable<CategoryAllModel>> GetCategoriesAsync();
 
-   
+        Task RemoveCategory(int categoryId);
+
+        
     }
 }

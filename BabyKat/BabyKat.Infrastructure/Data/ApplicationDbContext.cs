@@ -7,9 +7,19 @@ namespace BabyKat.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        private bool seedDb;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool seed = true)
             : base(options)
         {
+            if (this.Database.IsRelational())
+            {
+                this.Database.Migrate();
+            }
+            else
+            {
+                this.Database.EnsureCreated();
+            }
+            this.seedDb = seedDb;
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -34,13 +44,19 @@ namespace BabyKat.Infrastructure.Data
                 .HasMaxLength(60)
                 .IsRequired();
 
-            builder.ApplyConfiguration(new UserConfiguration());
-            builder.ApplyConfiguration(new CategoryConfiguration());
-            builder.ApplyConfiguration(new ProductConfiguration());
-            builder.ApplyConfiguration(new ArticleConfiguration());
-            builder.ApplyConfiguration(new RoleConfiguration());
+            if (this.seedDb)
+            {
+                builder.ApplyConfiguration(new UserConfiguration());
+                builder.ApplyConfiguration(new CategoryConfiguration());
+                builder.ApplyConfiguration(new ProductConfiguration());
+                builder.ApplyConfiguration(new ArticleConfiguration());
+                builder.ApplyConfiguration(new RoleConfiguration());
+
+            }
+
 
             base.OnModelCreating(builder);
+
         }
 
     }

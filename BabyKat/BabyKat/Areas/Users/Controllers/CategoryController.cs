@@ -1,4 +1,5 @@
 ﻿using BabyKat.Core.Contracts;
+using BabyKat.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -21,6 +22,7 @@ namespace BabyKat.Areas.Users.Controllers
             var model = await categoryService.GetCategoriesAsync();
             return View(model);
         }
+
 
 
 

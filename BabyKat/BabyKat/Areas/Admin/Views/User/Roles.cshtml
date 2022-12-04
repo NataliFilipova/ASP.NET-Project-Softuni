@@ -1,0 +1,30 @@
+﻿@using BabyKat.Core.Models.Userr
+@model UserChangeRoleModel
+
+ @{
+     ViewData["Title"] = "User Roles";
+    var items = (List<SelectListItem>)ViewBag.RoleItems;
+}
+
+<div class="row">
+    <div class="col-4">
+        <form id="roles" method="post">
+            <input type="hidden" name="UserId" value="@Model.Id" />
+         
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-floating">
+                <div class="form-group">
+                    <label>User Roles</label>
+                 <select asp-for="roles" asp-items="@items" class="form-control"></select>
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-4">
+                    <button id="login-submit" type="submit" class="btn btn-outline-success">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

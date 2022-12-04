@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yEVYx0Fq2Ti4DcyPGahP0RsnTB7rAFKrUdETD6C3jLvT4nBgfblDOdSHJbDTBOrXsRuPuYM6iX3tAP9U+adKiQ==",
+  "dgSpecHash": "VE7BhOymdsz7oGvei8Hzcv67kEkxKjiISIhxGdNb95MRBXe18Db2G8HryurDAoX2a9f5j/KcViM1wjBFWIzxKQ==",
   "success": true,
-  "projectFilePath": "D:\\BabyKatSoft\\BabyKat\\BabyKat\\BabyKat.csproj",
+  "projectFilePath": "D:\\Games\\BabyKatSoft\\BabyKat\\BabyKat\\BabyKat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\highf\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\highf\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

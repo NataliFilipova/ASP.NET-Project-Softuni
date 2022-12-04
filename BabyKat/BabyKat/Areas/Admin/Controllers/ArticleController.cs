@@ -2,12 +2,15 @@
 using BabyKat.Core.Models.Articlesss;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Security.Claims;
 
 namespace BabyKat.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class ArticleController : Controller
     {
         private readonly IArticleService articleService;

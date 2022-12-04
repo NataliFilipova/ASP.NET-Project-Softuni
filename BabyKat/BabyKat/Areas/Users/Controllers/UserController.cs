@@ -16,6 +16,7 @@ namespace BabyKat.Areas.Users.Controllers
 
         private readonly SignInManager<User> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        
 
         public UserController(
             UserManager<User> _userManager,
