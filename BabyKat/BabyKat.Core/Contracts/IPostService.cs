@@ -1,4 +1,5 @@
 ﻿using BabyKat.Core.Models.Postt;
+using BabyKat.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace BabyKat.Core.Contracts
 
         Task<IEnumerable<PostModel>> GetAllPosts();
 
-
+        Task<IEnumerable<PostModel>> GetPostsForProduct(int productId);
+        Task<IEnumerable<PostModel>> GetPostsForUser(string userId);
+        Task RemovePost(int postId);
 
     }
 }

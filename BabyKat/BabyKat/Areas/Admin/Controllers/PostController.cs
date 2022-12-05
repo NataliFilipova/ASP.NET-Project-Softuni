@@ -2,14 +2,17 @@
 using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Services;
 using BabyKat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Reflection;
 using System.Security.Claims;
 using System.Security.Permissions;
 
-namespace BabyKat.Areas.Users.Controllers
+namespace BabyKat.Areas.Admin.Controllers
 {
-    [Area("Users")]
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class PostController : Controller
     {
       
@@ -57,6 +60,7 @@ namespace BabyKat.Areas.Users.Controllers
             }
         }
 
+
         [HttpGet]
 
         public async Task<IActionResult> ShowPosts(int productId)
@@ -65,20 +69,10 @@ namespace BabyKat.Areas.Users.Controllers
             return View(model);
         }
 
-
-        [HttpGet]
-
-        public async Task<IActionResult> ShowUsersPosts()
-        {
-    
-            var user= User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            var model = await postService.GetPostsForUser(user);
-            return View(model);
-        }
         public async Task<IActionResult> RemovePost(int postId)
         {
             await postService.RemovePost(postId);
-            return RedirectToAction("ShowUsersPosts", "Post");
+            return RedirectToAction(nameof(All));
         }
     }
 }

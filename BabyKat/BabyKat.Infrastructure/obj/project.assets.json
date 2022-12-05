@@ -2192,11 +2192,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Games\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\BabyKat.Infrastructure.csproj",
+      "projectUniqueName": "D:\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\BabyKat.Infrastructure.csproj",
       "projectName": "BabyKat.Infrastructure",
-      "projectPath": "D:\\Games\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\BabyKat.Infrastructure.csproj",
+      "projectPath": "D:\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\BabyKat.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\highf\\.nuget\\packages\\",
-      "outputPath": "D:\\Games\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\obj\\",
+      "outputPath": "D:\\BabyKatSoft\\BabyKat\\BabyKat.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

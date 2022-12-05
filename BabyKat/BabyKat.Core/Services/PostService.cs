@@ -63,5 +63,46 @@ namespace BabyKat.Core.Services
 
 
         }
+
+        public async Task<IEnumerable<PostModel>> GetPostsForProduct(int productId)
+        {
+            var product = await repo.GetByIdAsync<Product>(productId);
+
+            return await repo.AllReadonly<Post>()
+                .Where(p => p.Product == product)
+            .Select(p => new PostModel()
+            {
+                Id = p.Id,
+                Title = p.Title,
+                Description = p.Description,
+                Product = p.Product,
+                Rating = p.Rating,
+                User = p.User
+            }).ToListAsync();
+
+        }
+
+        public async Task<IEnumerable<PostModel>> GetPostsForUser(string userId)
+        {
+            var user = await repo.GetByIdAsync<User>(userId);
+            return await repo.AllReadonly<Post>()
+             .Where(p => p.User == user)
+            .Select(p => new PostModel()
+             {
+                 Id = p.Id,
+                 Title = p.Title,
+                 Description = p.Description,
+                 Product = p.Product,
+                 Rating = p.Rating,
+                 User = p.User
+             }).ToListAsync();
+
+        }
+
+        public async Task RemovePost(int postId)
+        {
+            await repo.DeleteAsync<Post>(postId);
+            await repo.SaveChangesAsync();
+        }
     }
 }

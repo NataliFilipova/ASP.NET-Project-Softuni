@@ -25,12 +25,7 @@
 
                 <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
 
-                @if (User.IsInRole("Admin"))
-                {
-                    <a asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id" class="btn btn-outline-success">Delete</a>
-
-                    <a asp-controller="Product" asp-action="Edit" asp-route-productId="@product.Id" class="btn btn-outline-success">Edit Product</a>
-                }
+                <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-success">Reviews from users</a>
             </div>
 
             
