@@ -3,15 +3,22 @@
 
 @{
     ViewBag.Title = "Categories";
+    bool flag = true;
 }
 
-<h2 class="text-center"> @ViewBag.Title</h2>
-<hr />
+
+
 <div class="text-center row">
     @foreach (var product in Model)
     {
-        
-           
+
+        if (flag == true)
+        {
+            <h2 class="text-center">@product.CategoryName</h2>
+            <hr />
+            flag = false;
+        }
+
         <div class="card col-4" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@product.ImageUrl" alt="Book Image">

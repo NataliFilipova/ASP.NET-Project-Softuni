@@ -25,7 +25,7 @@
 
        
 
-            <a asp-controller="UserArticle" asp-action="Read" asp-route-articleId="@article.Id" class="btn btn-outline-success">Read</a>
+            <a asp-controller="Article" asp-action="Read" asp-route-articleId="@article.Id" class="btn btn-outline-success">Read</a>
 
             @*<a asp-controller="Comment" asp-action="Add" asp-route-articleId="@article.Id" class="btn btn-outline-success">Add Comment</a>*@
             @if (User.IsInRole("Admin"))

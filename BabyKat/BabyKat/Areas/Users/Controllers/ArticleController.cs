@@ -5,11 +5,11 @@ namespace BabyKat.Areas.Users.Controllers
 { 
 
      [Area("Users")]
-        public class UserArticleController : Controller
+        public class ArticleController : Controller
     {
         private readonly IArticleService articleService;
 
-        public UserArticleController(IArticleService _articleService)
+        public ArticleController(IArticleService _articleService)
         {
             articleService = _articleService;
         }

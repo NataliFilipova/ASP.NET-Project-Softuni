@@ -16,7 +16,7 @@ namespace BabyKat.Core.Contracts
         Task RemoveProductFromCategory(int productId);
 
         Task<ProductRatingModel> GetProduct(int productId);
-
+        
         Task EditProduct(int productId, ProductModel model);
     }
 }

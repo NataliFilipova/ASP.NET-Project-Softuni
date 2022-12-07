@@ -1,0 +1,34 @@
+﻿@using BabyKat.Core.Models._Product
+@model ProductRatingModel
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2 class="text-center"> @ViewBag.Title</h2>
+<hr />
+<div class="text-center row">
+   
+    {
+
+
+        <div class="card col-4" style="width: 20rem; ">
+            <img class="card-img-top" style="width: 18rem;"
+             src="@Model.ImageUrl" alt="Book Image">
+            <div class="card-body">
+
+                <h5 class="card-title mt-1">@Model.Name</h5>
+                <p class="mb-0">Price: @Model.Price$</p>
+                <p class="mb-0">Price: @Model.Description</p>
+                <p class="mb-0">Rating: @Model.Rating</p>
+
+
+                <a asp-controller="Post" asp-action="Add" asp-route-productId="@Model.Id" class="btn btn-outline-success">Post Review</a>
+
+                <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@Model.Id" class="btn btn-outline-success">Reviews from users</a>
+            </div>
+
+
+        </div>
+    }
+</div>

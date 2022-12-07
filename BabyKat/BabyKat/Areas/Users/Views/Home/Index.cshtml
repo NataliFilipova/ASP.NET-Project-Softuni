@@ -32,8 +32,8 @@
               src="@item.ImageUrl" alt="@item.Name">
              <div class="carousel-caption d-none d-md-block">
            <h5> 
-               <a class="btn btn-primary" asp-controller="Product" asp-action="LastThree"
-               asp-route-id="@item.Id"> @item.Name</a>
+               <a class="btn btn-primary" asp-controller="Product" asp-action="ShowProduct"
+               asp-route-productId="@item.Id"> @item.Name</a>
             </h5>
              </div>
          </div> 

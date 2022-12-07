@@ -15,6 +15,7 @@ namespace BabyKat.Infrastructure.Data
         {
             Posts = new List<Post>();
             Articles = new List<Article>();
+          
         }
        
         [Required]
@@ -38,5 +39,7 @@ namespace BabyKat.Infrastructure.Data
 
         public List<Article> Articles { get; set; }
         public List<Post> Posts { get; set; } 
+
+   
     }
 }

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,6 +44,7 @@ namespace BabyKat.Core.Services
                     Price = p.Price,
                     Description = p.Description,
                     Posts = p.Posts,
+                    CategoryName = category.Name,
                     Rating = p.Posts.Count == 0 ? 0.00m : p.Posts.Average(p => p.Rating)
 
                 })
@@ -111,8 +114,9 @@ namespace BabyKat.Core.Services
 
         public async Task<ProductRatingModel> GetProduct(int productId)
         {
-            var product = await repo.GetByIdAsync<Product>(productId);
-            var category = await repo.GetByIdAsync<Category>(product.CategoryId);
+            var product = await repo.All<Product>().Where(p => p.Id == productId)
+                .Include(p => p.Posts).FirstOrDefaultAsync();
+
 
             var entity = new ProductRatingModel()
             {
@@ -121,16 +125,14 @@ namespace BabyKat.Core.Services
                 Price = product.Price,
                 ImageUrl = product.ImageUrl,
                 CategoryId = product.CategoryId,
-                Categories = await repo.AllReadonly<Category>().ToListAsync(),
-                CategoryName = category.Name,
-                Rating = product.Posts.Average(p => p.Rating)
-                
+                Posts = product.Posts,
+                Rating = product.Posts.Count == 0 ? 0.00m : product.Posts.Average(p => p.Rating)
 
-             };
-            return entity; 
+
+            };
+            return entity;
         }
 
-        
 
         public async Task EditProduct(int productId, ProductModel model)
         {
