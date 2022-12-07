@@ -44,15 +44,14 @@ namespace BabyKat.Infrastructure.Data
                 .HasMaxLength(60)
                 .IsRequired();
 
-            if (this.seedDb)
-            {
+           
                 builder.ApplyConfiguration(new UserConfiguration());
                 builder.ApplyConfiguration(new CategoryConfiguration());
                 builder.ApplyConfiguration(new ProductConfiguration());
                 builder.ApplyConfiguration(new ArticleConfiguration());
                 builder.ApplyConfiguration(new RoleConfiguration());
 
-            }
+            
 
 
             base.OnModelCreating(builder);

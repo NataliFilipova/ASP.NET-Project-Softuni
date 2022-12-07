@@ -171,6 +171,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxTaG93UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BabyKatSoft/BabyKat/BabyKat/Areas/Users/Views/User/FavouriteProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcVXNlclxGYXZvdXJpdGVQcm9kdWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BabyKatSoft/BabyKat/BabyKat/Areas/Users/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

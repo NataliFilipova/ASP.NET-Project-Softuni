@@ -1,6 +1,8 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Security.Claims;
 
 
@@ -8,6 +10,7 @@ using System.Security.Claims;
 namespace BabyKat.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;

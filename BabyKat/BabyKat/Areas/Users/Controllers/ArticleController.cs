@@ -1,11 +1,14 @@
 ﻿using BabyKat.Core.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace BabyKat.Areas.Users.Controllers
 { 
 
      [Area("Users")]
-        public class ArticleController : Controller
+     [Authorize(Roles = "User,Admin")]
+    public class ArticleController : Controller
     {
         private readonly IArticleService articleService;
 

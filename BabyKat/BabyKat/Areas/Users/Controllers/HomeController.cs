@@ -1,11 +1,14 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics;
 
 namespace BabyKat.Areas.Users.Controllers
 {
     [Area("Users")]
+    
     public class HomeController : Controller
     {
        

@@ -27,10 +27,14 @@
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
                 <p class="mb-0">Price: @product.Description</p>
-                <p class="mb-0">Rating: @product.Rating</p>
+                @if(product.Rating != 0){
+                   <p  class="mb-0">Rating: @product.Rating</p>
+                }
+              
 
 
                 <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
+                <a asp-controller="User" asp-action="AddToCollection" asp-route-productId="@product.Id" class="btn btn-outline-success">Add to Favourite</a>
 
                 <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-success">Reviews from users</a>
             </div>

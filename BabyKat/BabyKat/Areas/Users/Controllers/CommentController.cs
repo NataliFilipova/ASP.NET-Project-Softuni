@@ -5,11 +5,14 @@ using BabyKat.Core.Models.Productt;
 using BabyKat.Core.Services;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace BabyKat.Areas.Users.Controllers
 {
     [Area("Users")]
+    [Authorize(Roles = "User,Admin")]
     public class CommentController : Controller
     {
         private readonly ICommentService commentService;

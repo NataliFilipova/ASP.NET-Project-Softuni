@@ -58,6 +58,8 @@
                       @* <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Product" asp-action="All">All Products</a>
                         </li>*@
+
+                        @if(User?.Identity?.IsAuthenticated ?? false){
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Users" asp-controller="Category" asp-action="All">Categories</a>
                         </li>
@@ -67,10 +69,14 @@
                             <a class="nav-link" asp-area="Users" asp-controller="Post" asp-action="ShowUsersPosts">Your opinion</a>
                         </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Users" asp-controller="User" asp-action="FavouriteProducts">Favourite products</a>
+                            </li>
+
                         <li class="nav-item">
                         <a class="nav-link " asp-area="Users" asp-controller="Article" asp-action="All"> Articles</a>
                         </li>
-
+                        }
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item dropdown">
@@ -85,7 +91,7 @@
                             </li>
                         }
                     </ul>
-
+                    
                     <partial name="_LoginPartial" />
                 </div>
             </div>

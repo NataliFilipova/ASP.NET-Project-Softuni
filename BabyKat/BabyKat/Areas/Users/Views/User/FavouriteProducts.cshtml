@@ -1,0 +1,38 @@
+﻿@using BabyKat.Core.Models._Product
+@model IEnumerable<ProductModel>
+
+@{
+    ViewBag.Title = "Categories";
+    bool flag = true;
+}
+
+
+
+<div class="text-center row">
+    @foreach (var product in Model)
+    {
+
+        if (flag == true)
+        {
+            <h2 class="text-center">@product.CategoryName</h2>
+            <hr />
+            flag = false;
+        }
+
+        <div class="card col-4" style="width: 20rem; ">
+            <img class="card-img-top" style="width: 18rem;"
+             src="@product.ImageUrl" alt="Book Image">
+            <div class="card-body">
+
+                <h5 class="card-title mt-1">@product.Name</h5>
+                <p class="mb-0">Price: @product.Price$</p>
+                <p class="mb-0">Price: @product.Description</p>
+
+                <a asp-controller="User" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-success">Remvove from favourites</a>
+
+            </div>
+
+            
+        </div>
+    }
+</div>

@@ -1,4 +1,5 @@
 ﻿using BabyKat.Core.Models._Product;
+using BabyKat.Core.Models.Productt;
 using BabyKat.Core.Models.Userr;
 using BabyKat.Infrastructure.Data;
 using System;
@@ -13,5 +14,10 @@ namespace BabyKat.Core.Contracts
     {
         Task<IEnumerable<AllUsers> > GetAllUsers () ;
         Task<User> GetUserById(string userId);
+
+        Task AddProductToFavouriteAsync(int productId, string userId);
+
+        Task <IEnumerable<ProductModel>> GetUserFavouriteProducts(string userId);
+        
     }
 }

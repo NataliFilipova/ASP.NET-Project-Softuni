@@ -2,7 +2,9 @@
 using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Services;
 using BabyKat.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Reflection;
 using System.Security.Claims;
 using System.Security.Permissions;
@@ -10,6 +12,7 @@ using System.Security.Permissions;
 namespace BabyKat.Areas.Users.Controllers
 {
     [Area("Users")]
+    [Authorize(Roles = "User,Admin")]
     public class PostController : Controller
     {
       

@@ -1,10 +1,13 @@
-﻿using BabyKat.Infrastructure.Data;
+﻿using BabyKat.Core.Contracts;
+using BabyKat.Core.Services;
+using BabyKat.Infrastructure.Data;
 using BabyKat.Models;
 
 using Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BabyKat.Areas.Users.Controllers
 {
@@ -13,18 +16,19 @@ namespace BabyKat.Areas.Users.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<User> userManager;
-
+        private readonly IUserService userService;
         private readonly SignInManager<User> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
         
 
         public UserController(
             UserManager<User> _userManager,
-            SignInManager<User> _signInManager, RoleManager<IdentityRole> _roleManager) 
+            SignInManager<User> _signInManager, RoleManager<IdentityRole> _roleManager, IUserService _userService) 
         {
             userManager = _userManager;
             signInManager = _signInManager;
             roleManager = _roleManager;
+            userService = _userService;
         }
 
         [HttpGet]
@@ -123,6 +127,38 @@ namespace BabyKat.Areas.Users.Controllers
             await signInManager.SignOutAsync();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> AddToCollection(int productId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                await userService.AddProductToFavouriteAsync(productId, userId);
+            }
+            catch (Exception e)
+            {
+                var erroMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", erroMassage);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> FavouriteProducts()
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                var model = await userService.GetUserFavouriteProducts(userId);
+
+                return View("FavouriteProducts", model);
+            }
+            catch (Exception e)
+            {
+                var errorMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", errorMassage);
+            }
         }
     }
 }

@@ -44,5 +44,7 @@ namespace BabyKat.Infrastructure.Data
         [Required]
         [Precision(18, 2)]
         public decimal Rating { get; set; }
+
+        
     }
 }

@@ -32,6 +32,8 @@
            
             <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
 
+            <a asp-controller="User" asp-action="AddToCollection" asp-route-productId="@product.Id" class="btn btn-outline-success">Add To Favourite</a>
+
             <a asp-controller="Product" asp-action="Edit" asp-route-productId="@product.Id" class="btn btn-outline-success">Edit Product</a>
           
         </div>

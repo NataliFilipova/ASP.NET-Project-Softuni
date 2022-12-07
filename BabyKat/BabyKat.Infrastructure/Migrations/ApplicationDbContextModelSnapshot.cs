@@ -241,9 +241,14 @@ namespace BabyKat.Infrastructure.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
 
@@ -387,9 +392,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "52f466b4-e24e-4179-bac8-e90cb86c3ace",
+                            ConcurrencyStamp = "746602ef-c6fc-4979-9fda-79f82d397b2d",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 11, 18, 21, 3, 49, 185, DateTimeKind.Local).AddTicks(1293),
+                            CreatedDate = new DateTime(2022, 12, 7, 21, 0, 26, 687, DateTimeKind.Local).AddTicks(4850),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -399,9 +404,9 @@ namespace BabyKat.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC9GE181zBPznwOLcVk0wLQXhckGMQdaorK7gK363pQL2mjXdEDRsM8I0Bbiwt/DNQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGQydIg383Dr8EupaIK/ZfoCM+ikEF5qJr+3DK7GhX85m4n9JUPAPep+Nnd3g030kw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7d83c379-ce1c-43bd-a2c8-ea093e9e9ae3",
+                            SecurityStamp = "d5048077-31b1-4ddc-b013-f0267494b860",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         });
@@ -437,13 +442,13 @@ namespace BabyKat.Infrastructure.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "247cd6c4-24b7-48f6-91b5-1fcf86a235f5",
+                            ConcurrencyStamp = "861244cc-1995-4560-804b-2f5f2a8f4f79",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "abaa6ad5-17fd-4fe5-819d-3d0fad722055",
+                            ConcurrencyStamp = "263c0f85-4d85-4837-83e2-6d9a464dc81c",
                             Name = "User"
                         });
                 });
@@ -607,6 +612,10 @@ namespace BabyKat.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BabyKat.Infrastructure.Data.User", null)
+                        .WithMany("Products")
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Category");
                 });
 
@@ -681,6 +690,8 @@ namespace BabyKat.Infrastructure.Migrations
                     b.Navigation("Articles");
 
                     b.Navigation("Posts");
+
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
