@@ -19,7 +19,7 @@ namespace BabyKat.Infrastructure.Data
             {
                 this.Database.EnsureCreated();
             }
-            this.seedDb = seedDb;
+            this.seedDb = seed;
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -44,14 +44,16 @@ namespace BabyKat.Infrastructure.Data
                 .HasMaxLength(60)
                 .IsRequired();
 
-           
+            if (this.seedDb)
+            {
+
                 builder.ApplyConfiguration(new UserConfiguration());
                 builder.ApplyConfiguration(new CategoryConfiguration());
                 builder.ApplyConfiguration(new ProductConfiguration());
                 builder.ApplyConfiguration(new ArticleConfiguration());
                 builder.ApplyConfiguration(new RoleConfiguration());
 
-            
+            }
 
 
             base.OnModelCreating(builder);

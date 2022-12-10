@@ -27,7 +27,7 @@ builder.Services.AddDefaultIdentity<User>(options =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.AccessDeniedPath = "";
-    options.LoginPath = "";
+    options.LoginPath = "";  
     options.LogoutPath = "";
 });
 
