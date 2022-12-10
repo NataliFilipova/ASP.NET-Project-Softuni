@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace BabyKat.Test.Services
 {
     [TestFixture]
-    public class ArticleServiceTests :UnitTestBase
+    public class ArticleServiceTests : UnitTestBase
     {
         private IArticleService articleService;
 
@@ -24,31 +24,12 @@ namespace BabyKat.Test.Services
 
         }
 
-        [Test]
+       [Test]
 
         public async Task Add_Article()
         {
-            //Arrange 
-            var hasher = new PasswordHasher<User>();
-            var user = new User()
-            {
-                Id = "dea12856-c198-4129-b3f3-b893d8395082",
-                FirstName = "Ivan",
-                UserName = "ivancho",
-                NormalizedUserName = "ivancho",
-                LastName = "Petrov",
-                Country = "Bulgaria",
-                Email = "agent@mail.com",
-                NormalizedEmail = "agent@mail.com"
-            };
-
-            user.PasswordHash =
-                 hasher.HashPassword(user, "agent123");
-
-
-            this.dbContext.Users.Add(user);
-            this.dbContext.SaveChanges();
-
+           
+            //Arrange
             ArticleModel articleModel = new ArticleModel()
             {
                 Title = "Bananas in a tree.",
@@ -60,21 +41,44 @@ namespace BabyKat.Test.Services
 
             //Act
 
-            articleService.AddArticle(articleModel, user.Id);
+            articleService.AddArticle(articleModel, this.user.Id);
 
             var count = this.dbContext.Articles.Count();
 
             // Assert
 
-            Assert.AreEqual(1, count);
+            Assert.AreEqual(3, count);
 
-            
+
 
         }
+
         [Test]
         public async Task DeleteArticle()
         {
 
+            //Arrange
+            var articleTest = this.dbContext.Articles.Where(u => u.Id == this.article.Id).FirstOrDefault();
+
+            //Act
+            articleService.DeleteArticle(articleTest.Id);
+
+            //Assert
+            Assert.AreEqual(2, this.dbContext.Articles.Count());
+
+
+        }
+
+
+        [Test]
+        public async Task EditArticle()
+        {
+            var articleTest = this.dbContext.Articles.Where(u => u.Id == this.article.Id).FirstOrDefault();
+
+            ArticleWithCommentsModel articleWithCommentsModel = new ArticleWithCommentsModel
+            {
+                
+            }
         }
     }
 }
