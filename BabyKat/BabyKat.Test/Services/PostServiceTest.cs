@@ -26,7 +26,7 @@ namespace BabyKat.Test.Services
         public async Task Add_Post()
         {
        
-            var posts = this.dbContext.Posts.Count();
+          var posts = this.dbContext.Posts.Count(); // 0
 
             var postModel = new PostModel
             {
@@ -38,8 +38,8 @@ namespace BabyKat.Test.Services
                 Product = product,
                 User = user
             };
-            postService.AddPost(postModel, user.Id);
-
+            await postService.AddPost(postModel, user.Id);
+           
             var result = this.dbContext.Posts.Count();
             Assert.AreEqual(result, posts+1);
 

@@ -108,6 +108,15 @@ namespace BabyKat.Core.Services
 
         public async Task RemoveProductFromCategory(int productId)
         {
+            var product = await repo.All<Product>().Where(p => p.Id == productId)
+               .Include(p => p.Posts).FirstOrDefaultAsync();
+            
+            foreach(var post in product.Posts)
+            {
+                repo.Delete<Post>(post);
+            }
+
+            
             await repo.DeleteAsync<Product>(productId);
             await repo.SaveChangesAsync();
         }

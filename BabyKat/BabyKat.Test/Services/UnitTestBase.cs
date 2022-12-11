@@ -176,6 +176,8 @@ namespace BabyKat.Test.Services
                 Author = "Reneta"
             };
             this.dbContext.AddRange(this.comment, this.comment1);
+
+           this.dbContext.SaveChanges();
         }
     }
 }
