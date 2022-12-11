@@ -70,15 +70,15 @@ namespace BabyKat.Test.Services
         }
 
 
-        [Test]
-        public async Task EditArticle()
-        {
-            var articleTest = this.dbContext.Articles.Where(u => u.Id == this.article.Id).FirstOrDefault();
+        //[Test]
+        //public async Task EditArticle()
+        //{
+        //    var articleTest = this.dbContext.Articles.Where(u => u.Id == this.article.Id).FirstOrDefault();
 
-            ArticleWithCommentsModel articleWithCommentsModel = new ArticleWithCommentsModel
-            {
+        //    ArticleWithCommentsModel articleWithCommentsModel = new ArticleWithCommentsModel
+        //    {
                 
-            }
-        }
+        //    }
+        //}
     }
 }

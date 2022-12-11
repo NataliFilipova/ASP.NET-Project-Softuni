@@ -30,7 +30,8 @@ namespace BabyKat.Test.Services
         public Article article { get; set; }
         public Article article1 { get; set; }
 
-
+        public Category category { get; set; }
+        public Category category1 { get; set; }
         public Product product { get; set; }
         public Product product1 { get; set; }
 
@@ -70,6 +71,20 @@ namespace BabyKat.Test.Services
 
             this.dbContext.AddRange(this.user,this.user1);
 
+            this.category = new Category()
+            {
+                Id = 1,
+                Name = "Strollers",
+                ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514019_1219_XL.jpg"
+            };
+            this.category1 = new Category()
+            {
+                Id = 2,
+                Name = "Car Seats",
+                ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/58/517361_9155_XXXL.jpg"
+            };
+            this.dbContext.AddRange(this.category, this.category1);
+
 
             this.product = new Product()
             {
@@ -81,7 +96,7 @@ namespace BabyKat.Test.Services
                     "Pros: Rubber base, hold handle, suitable for multiple ages. " +
                     "Cons: Shallow seat, low splash guard" +
                     "Simple, sturdy, and easy to clean, this toddler toilet that has exactly what you need and no more.",
-                CategoryId = 6,
+                CategoryId = 1,
                 ImageUrl = "https://m.media-amazon.com/images/I/71XDXNt9n5L._SL1500_.jpg",
                 Rating = 0.00m
 
@@ -94,7 +109,7 @@ namespace BabyKat.Test.Services
                     "Pros: Deep bowl, convenient size, breeze to clean" +
                     "Cons: Limited age range, backless" +
                     "Small and functional potty that is perfect for budget minded parents",
-                CategoryId = 6,
+                CategoryId = 2,
                 ImageUrl = "https://m.media-amazon.com/images/I/61+uuyDhAcL._SL1500_.jpg",
                 Rating = 0.00m
             };
