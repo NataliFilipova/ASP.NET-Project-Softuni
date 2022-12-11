@@ -12,8 +12,6 @@ namespace BabyKat.Core.Contracts
     {
         Task AddPost(PostModel model, string userId);
 
-        Task DeletePost(PostModel model);
-
         Task<IEnumerable<PostModel>> GetAllPosts();
 
         Task<IEnumerable<PostModel>> GetPostsForProduct(int productId);

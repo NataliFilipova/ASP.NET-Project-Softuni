@@ -35,6 +35,15 @@ namespace BabyKat.Test.Services
         public Product product { get; set; }
         public Product product1 { get; set; }
 
+        public Post post { get; set; }
+
+        public Post post1 { get; set; }
+
+        public Comment comment { get; set; }
+
+        public Comment comment1 { get; set; }
+
+
         private void SeedDatabase()
         {
             var hasher = new PasswordHasher<User>();
@@ -131,6 +140,42 @@ namespace BabyKat.Test.Services
                 UserId = "dea12856-c198-4129-b3f3-b893d8395082"
             };
             this.dbContext.AddRange(this.article, this.article1);
+
+            this.post = new Post()
+            {
+                Title = "Magnificent",
+                UserId = "dea12856-c198-4129-b3f3-b893d8395082",
+                Rating = 5.00m,
+                Description = "Hello, from the other side my friendss.",
+                ProductId = product.Id
+
+            };
+
+            this.post1 = new Post()
+            {
+                Title = "Wonderful!",
+                UserId = "dea12856-c198-4129-b3f3-b893d8395082",
+                Rating = 6.00m,
+                Description = "Hello, from the other side my friendss.",
+                ProductId = product.Id
+
+            };
+
+            this.dbContext.AddRange(this.post, this.post1);
+
+            this.comment = new Comment()
+            {
+                ArticleId = article.Id,
+                Description = "I love this article!",
+                Author = "Ivan"
+            };
+            this.comment1 = new Comment()
+            {
+                ArticleId = article.Id,
+                Description = "Very useful, I can't wait to read more about it!",
+                Author = "Reneta"
+            };
+            this.dbContext.AddRange(this.comment, this.comment1);
         }
     }
 }

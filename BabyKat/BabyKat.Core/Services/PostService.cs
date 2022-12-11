@@ -43,10 +43,7 @@ namespace BabyKat.Core.Services
             
             await repo.SaveChangesAsync();  
         }
-        public Task DeletePost(PostModel model)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public async Task<IEnumerable<PostModel>> GetAllPosts()
         {
