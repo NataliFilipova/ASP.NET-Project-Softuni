@@ -25,8 +25,8 @@ namespace BabyKat.Test.Services
         [Test]
         public async Task Add_Post()
         {
-       
-          var posts = this.dbContext.Posts.Count(); // 0
+           //Arrange
+          var posts = this.dbContext.Posts.Count(); 
 
             var postModel = new PostModel
             {
@@ -38,12 +38,68 @@ namespace BabyKat.Test.Services
                 Product = product,
                 User = user
             };
+
+            //Act
             await postService.AddPost(postModel, user.Id);
            
             var result = this.dbContext.Posts.Count();
+
+            //Assert
             Assert.AreEqual(result, posts+1);
 
         }
 
+        [Test]
+        public async Task Get_All_Posts()
+        {
+            //Arrange
+            var posts = dbContext.Posts;
+
+            //Act
+            var action = postService.GetAllPosts().Result;
+
+            //Assert
+            Assert.AreEqual(posts.Count(), action.Count());
+        }
+
+        [Test]
+
+        public async Task Get_Posts_For_Product()
+        {
+            //Arrange
+            var postTest = dbContext.Posts.Where(p => p.ProductId == product.Id).FirstOrDefault();
+
+            //Act
+            var posts = postService.GetPostsForProduct(postTest.ProductId).Result;
+
+            //Assert
+            Assert.AreEqual(product.Posts.Count, posts.Count());
+        }
+
+        [Test]
+        public async Task Get_Posts_For_User()
+        {
+            //Arrange
+            var postTest = dbContext.Posts.Where(p => p.UserId == user.Id).FirstOrDefault();
+            //Act
+            var posts = postService.GetPostsForUser(postTest.UserId).Result;
+
+            //Assert
+            Assert.AreEqual(user.Posts.Count, posts.Count());
+        }
+
+        [Test]
+        public async Task Remove_Post()
+        {
+            //Arrange
+            var posts = dbContext.Posts.Count();
+            var postTest = dbContext.Posts.Where(p => p.Id == post.Id).FirstOrDefault();
+            //Act
+            postService.RemovePost(postTest.Id);
+            var action = dbContext.Posts.Count();
+
+            //Assert
+            Assert.AreEqual(posts - 1, action);
+        }
     }
 }
