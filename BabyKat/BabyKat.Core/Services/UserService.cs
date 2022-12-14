@@ -87,5 +87,19 @@ namespace BabyKat.Core.Services
 
             });
         }
+
+        public async Task RemoveProductFromFavouriteAsync(int productId, string userId)
+        {
+            var user = await repo.All<User>().Where(p => p.Id == userId)
+               .Include(p => p.Products).FirstOrDefaultAsync();
+
+            var product = await repo.All<Product>().Where(p => p.Id == productId)
+              .Include(p => p.Posts).FirstOrDefaultAsync();
+
+            user.Products.Remove(product);
+            await repo.SaveChangesAsync();
+            
+
+        }
     }
 }

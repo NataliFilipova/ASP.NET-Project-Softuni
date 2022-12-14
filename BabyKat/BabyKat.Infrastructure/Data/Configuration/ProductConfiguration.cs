@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BabyKat.Infrastructure.Data.Configuration
 {
@@ -65,6 +67,79 @@ namespace BabyKat.Infrastructure.Data.Configuration
                     ImageUrl = "https://m.media-amazon.com/images/I/716ccNgQUSL._SX466_.jpg",
                     Rating = 0.00m
                 },
+                new Product
+                {
+                    Id = 5,
+                    Name = "Rumparooz Pocket",
+                    Price = 25.95m,
+                    Description = "Pocket style,Soft,Better cloth price,Requires stuffing,Synthetic fiber,Less impressive absorbency",
+                    CategoryId = 6,
+                    ImageUrl = "https://m.media-amazon.com/images/I/51JiAyr7MjL._SX300_SY300_QL70_FMwebp_.jpg",
+                    Rating = 0.00m
+                },
+                 new Product
+                {
+                    Id = 6,
+                    Name = "Pampers Swaddlers Overnights",
+                    Price = 0.48m,
+                    Description = "Great absorbency, Good leak protection,Elemental chlorine-free,  Fragrance, Daytime & overnights are similar",
+                    CategoryId = 6,
+                    ImageUrl = "https://m.media-amazon.com/images/I/71fm7WgBFRL._AC_SX679_.jpg",
+                    Rating = 0.00m
+                },
+                   new Product
+                {
+                    Id = 7,
+                    Name = "Clek Oobr",
+                    Price = 369.99m,
+                    Description = "Great crash test results, high quality, rigid LATCH, Heavy, hard to move, harder to use. Impressive crash test results and quality materials make this a great choice ",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/47/516270_16078_S.jpg",
+                    Rating = 0.00m
+                },
+
+                     new Product
+                {
+                    Id =8,
+                    Name = "Diono Monterey XT",
+                    Price = 139.99m,
+                    Description = "Better crash test results, price, lighter. Less padding, quality. Less padding, quality ",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/47/516270_16078_S.jpg",
+                    Rating = 0.00m
+                },
+
+                     new Product
+                {
+                    Id =9,
+                    Name = "UPPAbaby Alta",
+                    Price = 179.99m,
+                    Description = "Reasonable price, better crash test analysis, super comfy, high-quality, Heavier, can't go backless, This high-quality booster is super comfortable, with better crash test analysis and a reasonable price.",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528168_30157_S.jpg",
+                    Rating = 0.00m
+                },
+                     new Product
+                {
+                    Id =10,
+                    Name = "Chicco KidFit",
+                    Price = 109.99m,
+                    Description = "Easiest to use, better crash test results, price,Average quality, widest seat bottom,Nicely priced, easy to use option with better crash test results",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528168_30157_S.jpg",
+                    Rating = 0.00m
+                },
+                      new Product
+                {
+                    Id =11,
+                    Name = "Peg Perego Viaggio Flex 120",
+                    Price = 319.99m,
+                    Description = "Easier to use, narrow width, comfortable,Higher price, higher HIC crash test result, Expensive, quality seat that is narrow and easy to use. ",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/48/516311_9127_XXXL.jpg",
+                    Rating = 0.00m
+                },
+
 
             };
             return products;

@@ -1,7 +1,9 @@
 ﻿using BabyKat.Core.Contracts;
+using BabyKat.Core.Models._Product;
 using BabyKat.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System.Data;
 
 namespace BabyKat.Areas.Users.Controllers
@@ -11,17 +13,26 @@ namespace BabyKat.Areas.Users.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService productService;
-
-        public ProductController(IProductService _productService)
+        private readonly IMemoryCache memoryCache;
+        public ProductController(IProductService _productService, IMemoryCache _memoryCache)
         {
             productService = _productService;
+            memoryCache = _memoryCache;
         }
 
 
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            var model = await productService.GetAllAsync();
+         //   var products = this.memoryCache.Get<IEnumerable<ProductRatingModel>>("ProductCacheKey");
+         //   products = await productService.GetAllAsync();
+          var model = await productService.GetAllAsync();
+         //   var cacheOptions = new MemoryCacheEntryOptions()
+           //     .SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+           //this.cache.Remove("ProductCacheKey);
+
+
+
             return View(model);
         }
 

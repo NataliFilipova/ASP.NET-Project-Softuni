@@ -18,6 +18,8 @@ namespace BabyKat.Core.Contracts
         Task AddProductToFavouriteAsync(int productId, string userId);
 
         Task <IEnumerable<ProductModel>> GetUserFavouriteProducts(string userId);
+
+        Task RemoveProductFromFavouriteAsync(int productId, string userId);
         
     }
 }

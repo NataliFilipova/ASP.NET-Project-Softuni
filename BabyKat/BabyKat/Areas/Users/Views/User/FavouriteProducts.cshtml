@@ -28,7 +28,7 @@
                 <p class="mb-0">Price: @product.Price$</p>
                 <p class="mb-0">Price: @product.Description</p>
 
-                <a asp-controller="User" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-success">Remvove from favourites</a>
+                <a asp-controller="User" asp-action="RemoveProductFromFavourites" asp-route-productId="@product.Id" class="btn btn-outline-success">Remove from favourites</a>
 
             </div>
 

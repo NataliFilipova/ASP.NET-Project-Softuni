@@ -1,0 +1,18 @@
+﻿@using BabyKat.Core.Models.Commentt
+
+@model CommentModel
+@{
+    ViewBag.Title = "Add Comment";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<partial name="_CommentPartial" model="@Model" />
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

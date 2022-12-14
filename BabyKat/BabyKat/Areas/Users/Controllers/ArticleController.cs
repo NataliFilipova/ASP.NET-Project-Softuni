@@ -7,7 +7,7 @@ namespace BabyKat.Areas.Users.Controllers
 { 
 
      [Area("Users")]
-     [Authorize(Roles = "User,Admin")]
+     [Authorize(Roles = "User")]
     public class ArticleController : Controller
     {
         private readonly IArticleService articleService;

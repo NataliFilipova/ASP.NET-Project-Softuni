@@ -79,7 +79,7 @@ namespace BabyKat.Core.Services
                     ImageUrl = p.ImageUrl,
                     Name = p.Name
                 })
-                 .Take(2)
+                 .Take(3)
                 .ToListAsync();
         }
 

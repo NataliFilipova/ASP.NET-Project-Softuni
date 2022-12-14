@@ -12,7 +12,7 @@ using System.Data;
 namespace BabyKat.Areas.Users.Controllers
 {
     [Area("Users")]
-    [Authorize(Roles = "User,Admin")]
+    [Authorize(Roles = "User")]
     public class CommentController : Controller
     {
         private readonly ICommentService commentService;
@@ -43,7 +43,7 @@ namespace BabyKat.Areas.Users.Controllers
             {
                 await commentService.AddComment(model);
 
-                return RedirectToAction("Read", "UserArticle", new {model.ArticleId });
+                return RedirectToAction("Read", "Article", new {model.ArticleId });
             }
             catch (Exception e)
             {
@@ -52,10 +52,6 @@ namespace BabyKat.Areas.Users.Controllers
             }
         }
 
-        public async Task<IActionResult> Remove(int commentId)
-        {
-            int articleId = await commentService.DeleteComment(commentId);
-            return RedirectToAction("Read", "UserArticle", new { articleId });
-        }
+       
     }
 }

@@ -11,12 +11,12 @@ namespace BabyKat.Infrastructure
     {
         public class ArticleConstants
         {
-            public const int TitleMaxLength = 50;
+            public const int TitleMaxLength = 100;
             public const int TitleMinLength = 5;
 
             public const int ImageUrlMaxLength = 400;
 
-            public const int DescriptionMaxLength = 6000;
+            public const int DescriptionMaxLength = 10000;
             public const int DescriptionMinLength = 500;
 
 

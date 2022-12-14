@@ -19,16 +19,19 @@
             flag = false;
         }
 
-        <div class="card col-4" style="width: 20rem; ">
+        <div class="card col-4 mt-2" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@product.ImageUrl" alt="Book Image">
             <div class="card-body">
 
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
-                <p class="mb-0">Price: @product.Description</p>
-                @if(product.Rating != 0){
+                <p class="mb-0">Description: @product.Description</p>
+                @if(product.Rating != 0.000m){
                    <p  class="mb-0">Rating: @product.Rating</p>
+                }
+                else {
+                    <p class="mb-0">There aren't any reviews from users.</p>
                 }
               
 

@@ -7,8 +7,8 @@
 
 @if (Model.Count() == 0){
     <div class="mt-4 p-5 bg-light"> 
-        <h1 class="display-4">Welcome to the best place for renting houses!</h1>
-        <p class="lead"> There are no houses in the system currently available so why don't you just add one?
+        <h1 class="display-4">Welcome to the best place for baby gear!</h1>
+        <p class="lead"> There are no products in the system currently available!
         </p> 
         <hr class="my-4"> <p class="lead"> 
 
@@ -28,7 +28,7 @@
     {
         <div class="carousel-item @((first) ? "active" : string.Empty)"> 
            
-            <img class="d-block w-100" style="height:500px" 
+            <img class="d-block w-100" style="height:700px" 
               src="@item.ImageUrl" alt="@item.Name">
              <div class="carousel-caption d-none d-md-block">
            <h5> 

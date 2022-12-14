@@ -142,7 +142,7 @@ namespace BabyKat.Areas.Users.Controllers
                 return View("Error", erroMassage);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("All", "Category");
         }
 
         public async Task<IActionResult> FavouriteProducts()
@@ -159,6 +159,23 @@ namespace BabyKat.Areas.Users.Controllers
                 var errorMassage = new ErrorViewModel { RequestId = e.Message };
                 return View("Error", errorMassage);
             }
+        }
+
+        public async Task<IActionResult> RemoveProductFromFavourites(int productId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                await userService.RemoveProductFromFavouriteAsync(productId, userId);
+                return RedirectToAction("FavouriteProducts", "User");
+
+            }
+            catch (Exception e)
+            {
+                var errorMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", errorMassage);
+            }
+
         }
     }
 }
