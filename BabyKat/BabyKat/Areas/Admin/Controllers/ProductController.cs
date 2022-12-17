@@ -5,6 +5,7 @@ using BabyKat.Core.Services;
 using BabyKat.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using BabyKat.Core.Models._Product;
 
 namespace BabyKat.Areas.Admin.Controllers
 {
@@ -39,7 +40,7 @@ namespace BabyKat.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            var model = new ProductModel()
+            var model = new ProductRatingModel()
             {
                 Categories = await productService.GetCategoriesAsync(),
 
@@ -48,7 +49,7 @@ namespace BabyKat.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Add(ProductModel model)
+        public async Task<IActionResult> Add(ProductRatingModel model)
         {
 
 
@@ -79,7 +80,7 @@ namespace BabyKat.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int productId, ProductModel model)
+        public async Task<IActionResult> Edit(int productId, ProductRatingModel model)
         {
             try
             {
@@ -90,6 +91,21 @@ namespace BabyKat.Areas.Admin.Controllers
             {
                 var errorMessage = new ErrorViewModel { RequestId = e.Message };
                 return View("Error", errorMessage);
+            }
+        }
+ 
+        public async Task<IActionResult> FindProductByName(string id)
+        {
+            try
+            {
+                var product = await productService.FindProduct(id);
+                
+               return View(product);
+            }
+            catch (Exception e)
+            {
+                var erroMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", erroMassage);
             }
         }
     }

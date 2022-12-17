@@ -22,10 +22,10 @@ namespace BabyKat.Test.Services
 
         [Test]
 
-        public async Task AddProductAsync(){
+        public async Task Add_Product_Async(){
 
             //Arrange
-            ProductModel productModel = new ProductModel
+            ProductRatingModel productModel = new ProductRatingModel
             {
                 Price = 10.00m,
                 Description = "ON-THE-GO TRAVEL COT: As a parent, we know that life takes you many different places. So, we designed the Go With Me Bungalow to fit into a portable carry bag. Simply unpack it from the bag, expand the cot, lock it into place, and attach the canopy.\r\nMAXIMUM SAFETY & STYLE: Our strong and stable metal frame locks into place and keeps the cot secure wherever it goes. You shouldn’t have to sacrifice style for safety. That is why we created this neutral-colored Bungalow Deluxe to fit in any home’s décor.",
@@ -44,7 +44,7 @@ namespace BabyKat.Test.Services
 
         [Test]
 
-        public async Task RemoveProductFromCategory()
+        public async Task Remove_Product_From_Category()
         {
             //Arrange
             var productTest = this.dbContext.Products.Where(p => p.Id == product.Id).FirstOrDefault();
@@ -57,7 +57,7 @@ namespace BabyKat.Test.Services
             Assert.AreEqual(2, result);
         }
         [Test]
-        public async Task GetCategoriesAsync()
+        public async Task Get_Categories_Async()
         {
             var action = productService.GetCategoriesAsync().Result;
 
@@ -67,7 +67,7 @@ namespace BabyKat.Test.Services
         }
 
         [Test]
-        public async Task GetProductsForCategoryAsync()
+        public async Task Get_Products_For_Category_Async()
         {
             var categoryTest = dbContext.Categories.Where(p => p.Id == category.Id).FirstOrDefault();
 
@@ -81,7 +81,7 @@ namespace BabyKat.Test.Services
 
 
         [Test]
-        public async Task GetProduct()
+        public async Task Get_Product()
         {
             var productTest = this.dbContext.Products.Where(p => p.Id == product.Id).FirstOrDefault();
 
@@ -92,12 +92,25 @@ namespace BabyKat.Test.Services
 
         [Test]
 
-        public async Task LastThreeProducts()
+        public async Task Last_Three_Products()
         {
             var productCollection = await productService.LastThreeProducts();
 
-            Assert.AreEqual(2, productCollection.Count());
+            Assert.AreEqual(3, productCollection.Count());
         }
+        [Test]
 
+        public async Task Find_Product_By_Name()
+        {
+            //Arrange 
+            var product = this.dbContext.Products.Where(p => p.Id == this.product.Id).FirstOrDefault();
+
+            //Act 
+
+            var result = this.productService.FindProduct(product.Name).Result;
+
+            //Assert
+            Assert.AreEqual(product.Price, result.Price);
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿using BabyKat.Core.Contracts;
+﻿using AngleSharp.Html.Dom;
+using BabyKat.Core.Contracts;
 using BabyKat.Core.Models.Articlesss;
 using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
+using Ganss.Xss;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,12 +26,13 @@ namespace BabyKat.Core.Services
     
         public async Task AddArticle(ArticleModel model, string userId)
         {
+            var sanitezer = new HtmlSanitizer();
             var user = await repo.GetByIdAsync<User>(userId);
             var entity = new Article()
             {
-                Title = model.Title,
-                Description = model.Description,
-                ImgUrl = model.ImageUrl,
+                Title = sanitezer.Sanitize(model.Title),
+                Description = sanitezer.Sanitize(model.Description),
+                ImgUrl = sanitezer.Sanitize(model.ImageUrl),
                 User = user,
                 UserId = userId
                 
@@ -48,11 +51,12 @@ namespace BabyKat.Core.Services
 
         public async Task EditArticle(int articleId, ArticleWithCommentsModel model)
         {
+            var sanitizer = new HtmlSanitizer();
             var article = await repo.GetByIdAsync<Article>(articleId);
 
-            article.Title = model.Title;
-            article.Description = model.Description;
-            article.ImgUrl = model.ImageUrl;
+            article.Title = sanitizer.Sanitize(model.Title);
+            article.Description = sanitizer.Sanitize(model.Description);
+            article.ImgUrl = sanitizer.Sanitize(model.ImageUrl);
           
             repo.Update(article);
             await repo.SaveChangesAsync();

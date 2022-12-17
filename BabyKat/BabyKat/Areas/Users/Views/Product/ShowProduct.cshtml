@@ -2,33 +2,110 @@
 @model ProductRatingModel
 
 @{
-    ViewBag.Title = "Categories";
+    ViewBag.Title = "";
 }
 
-<h2 class="text-center"> @ViewBag.Title</h2>
-<hr />
 <div class="text-center row">
-   
-    {
 
+    <div class="card mb-3">
+        <h3 class="card-header">@Model.Name</h3>
+        <div class="card-body-article">
 
-        <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem;"
-             src="@Model.ImageUrl" alt="Book Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">@Model.Name</h5>
-                <p class="mb-0">Price: @Model.Price$</p>
-                <p class="mb-0">Price: @Model.Description</p>
-                <p class="mb-0">Rating: @Model.Rating</p>
-
-
-                <a asp-controller="Post" asp-action="Add" asp-route-productId="@Model.Id" class="btn btn-outline-success">Post Review</a>
-
-                <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@Model.Id" class="btn btn-outline-success">Reviews from users</a>
-            </div>
-
+            <img class="article-img" style="width:20%; "
+                 src="@Model.ImageUrl" alt="Post Image">
 
         </div>
-    }
+        <p class="mb-0 text-info">Price: @Model.Price.ToString("0.00")$</p>
+
+
+        <div class="card-body">
+            <p class="card-text">@Model.Description</p>
+        </div>
+
+        @if (@Model.Rating != 0.000m)
+        {
+            <p class="mb-0 text-danger">Rating: @Model.Rating.ToString("0.00")</p>
+        }
+        else
+        {
+            <p class="mb-0 text-danger">There aren't any reviews from users.</p>
+        }
+       
+          <a asp-controller="Post" asp-action="Add" asp-route-productId="@Model.Id" class="btn btn-outline-success">Post Review</a>
+
+        @if (@Model.Rating != 0.000m)
+        {
+
+            <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@Model.Id" class="btn btn-outline-danger">Reviews from users</a>
+        }
+      
+
+  </div>
+
+  @*
+    <img class="card-img-top" style="width: 18rem;"
+         src="@Model.ImageUrl" alt="Book Image">
+    <div class="card-body">
+
+        <h5 class="card-title mt-1 text-warning">@Model.Name</h5>
+        <p class="mb-0 text-info">Price: @Model.Price.ToString("0.00")$</p>
+        <p class="mb-0 text-success">Description: @Model.Description</p>
+        @if (@Model.Rating != 0.000m)
+        {
+            <p class="mb-0 text-danger">Rating: @Model.Rating.ToString("0.00")</p>
+        }
+        else
+        {
+            <p class="mb-0 text-danger">There aren't any reviews from users.</p>
+        }
+
+
+        <a asp-controller="Post" asp-action="Add" asp-route-productId="@Model.Id" class="btn btn-outline-success">Post Review</a>
+
+        <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@Model.Id" class="btn btn-outline-danger">Reviews from users</a>
+    </div>
+
+
 </div>
+
+</div>
+
+<div class="text-center row">
+
+    <div class="card mb-3">
+        <h3 class="card-header">@Model.Title</h3>
+        <div class="card-body-article">
+
+            <img class="article-img" style="width: 80%; "
+                 src="@Model.ImageUrl" alt="Post Image">
+
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">@Model.Description</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Comments: </h4>
+
+            @foreach (var comment in @Model.Comments)
+            {
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Description: @comment.Description</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Author: @comment.Author</h6>
+
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+
+    <a asp-controller="Comment" asp-action="Add" asp-route-articleId="@Model.Id" class="btn btn-outline-success">Add Comment</a>
+</div>*@

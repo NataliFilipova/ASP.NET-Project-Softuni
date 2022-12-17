@@ -22,7 +22,7 @@ namespace BabyKat.Core.Services
             repo = _repo;
         }
 
-        public async Task AddProductToFavouriteAsync(int productId,string userId)
+        public async Task<int> AddProductToFavouriteAsync(int productId,string userId)
         {
             var user = await repo.GetByIdAsync<User>(userId);
             if (user == null)
@@ -40,6 +40,7 @@ namespace BabyKat.Core.Services
             {
                 user.Products.Add(product);
                 await repo.SaveChangesAsync();
+                return product.CategoryId;
             }
             else
             {

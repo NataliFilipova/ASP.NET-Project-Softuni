@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BabyKat.Infrastructure.Migrations
 {
-    public partial class seedDb : Migration
+    public partial class seeddb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,8 +14,8 @@ namespace BabyKat.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1", "115eeb99-7f6e-4406-a1e2-64cb8221546f", "Admin", null },
-                    { "2", "18e957dc-8ea6-4d66-88df-05ffc1670bfc", "User", null }
+                    { "1", "4fbf3a28-f878-4492-b40d-c5de13b4b11b", "Admin", "ADMIN" },
+                    { "2", "87db2d6f-23bb-4b1c-9706-81052e0009a9", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -23,8 +23,8 @@ namespace BabyKat.Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Country", "CreatedDate", "DeletedOn", "Email", "EmailConfirmed", "FirstName", "IsDeleted", "LastModifiedOn", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "dea12856-c198-4129-b3f3-b893d22295082", 0, "c12626d2-3830-49ed-a09e-5f2c6d7bc2c0", "Bulgaria", new DateTime(2022, 12, 14, 22, 44, 34, 148, DateTimeKind.Local).AddTicks(5433), null, "agent@mail.com", false, "Natali", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Petrov", false, null, "agen22t@mail.com", "gepeto", null, null, false, "8637cead-db99-4dca-9b00-11e2dd959fed", false, "gepeto" },
-                    { "dea12856-c198-4129-b3f3-b893d8395082", 0, "4c3dc699-e9cc-4bb0-ac65-fe170e18b510", "Bulgaria", new DateTime(2022, 12, 14, 22, 44, 34, 145, DateTimeKind.Local).AddTicks(6442), null, "agent@mail.com", false, "Ivan", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Petrov", false, null, "agent@mail.com", "ivancho", "AQAAAAEAACcQAAAAEODaF7jRuo1IN2WNAGmidf8jN3w7dYZ/hQW5u/UT44ztYStVPaIh4ujaVIc2NbXSoA==", null, false, "cf0d7ac3-95f1-4ef9-82d0-8be9d6e4628c", false, "ivancho" }
+                    { "dea12856-c198-4129-b3f3-b893d22295082", 0, "ededd51f-bea3-4c08-98fc-c3346ba4c6bc", "Bulgaria", new DateTime(2022, 12, 17, 22, 47, 28, 863, DateTimeKind.Local).AddTicks(7426), null, "agent@mail.com", false, "Natali", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Petrov", false, null, "agen22t@mail.com", "GEPETO", "AQAAAAEAACcQAAAAEEM2HHyMmkZnJszdrEI1SAPzUwqpNrQmOlB33SxxJaxxGHvdyM7Z1D/TyvZe2eL9JQ==", null, false, "55ee9701-4d75-4601-b28c-238cda268dec", false, "gepeto" },
+                    { "dea12856-c198-4129-b3f3-b893d8395082", 0, "3a592a11-8bed-4125-9158-600ed829b0c8", "Bulgaria", new DateTime(2022, 12, 17, 22, 47, 28, 853, DateTimeKind.Local).AddTicks(78), null, "agent@mail.com", false, "Ivan", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Petrov", false, null, "agent@mail.com", "IVANCHO", "AQAAAAEAACcQAAAAELBVK2da5inshIX3ThoiFPqeJzZfHOjvVlVPTzXbTC2tfXAnebbHgMs4mQVAKEpy0Q==", null, false, "2591b139-fb54-47f6-8cb4-9c23bb866cee", false, "ivancho" }
                 });
 
             migrationBuilder.InsertData(
@@ -38,7 +38,8 @@ namespace BabyKat.Infrastructure.Migrations
                     { 4, "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/44/525884_21115_XXXL.jpg", "Health" },
                     { 5, "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/92/520712_12268_XXXL.jpg", "Feeding" },
                     { 6, "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/33/524835_31524_XXXL.jpg", "Diaper" },
-                    { 7, "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg", "Soothe" }
+                    { 7, "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg", "Soothe" },
+                    { 8, "https://s13emagst.akamaized.net/products/1863/1862082/images/res_1b722249fcaa154fb1533cbcd08f8480.jpg", "Toys" }
                 });
 
             migrationBuilder.InsertData(
@@ -59,6 +60,11 @@ namespace BabyKat.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "1", "dea12856-c198-4129-b3f3-b893d8395082" });
+
+            migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "CategoryId", "Description", "ImageUrl", "Name", "Price", "Rating", "UserId" },
                 values: new object[,]
@@ -73,7 +79,10 @@ namespace BabyKat.Infrastructure.Migrations
                     { 8, 2, "Better crash test results, price, lighter. Less padding, quality. Less padding, quality ", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/47/516270_16078_S.jpg", "Diono Monterey XT", 139.99m, 0.00m, null },
                     { 9, 2, "Reasonable price, better crash test analysis, super comfy, high-quality, Heavier, can't go backless, This high-quality booster is super comfortable, with better crash test analysis and a reasonable price.", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528168_30157_S.jpg", "UPPAbaby Alta", 179.99m, 0.00m, null },
                     { 10, 2, "Easiest to use, better crash test results, price,Average quality, widest seat bottom,Nicely priced, easy to use option with better crash test results", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528168_30157_S.jpg", "Chicco KidFit", 109.99m, 0.00m, null },
-                    { 11, 2, "Easier to use, narrow width, comfortable,Higher price, higher HIC crash test result, Expensive, quality seat that is narrow and easy to use. ", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/48/516311_9127_XXXL.jpg", "Peg Perego Viaggio Flex 120", 319.99m, 0.00m, null }
+                    { 11, 2, "Easier to use, narrow width, comfortable,Higher price, higher HIC crash test result, Expensive, quality seat that is narrow and easy to use. ", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/48/516311_9127_XXXL.jpg", "Peg Perego Viaggio Flex 120", 319.99m, 0.00m, null },
+                    { 12, 1, "Easy to use, giant canopies, quick fold, includes accessories. Brakes require extra attention to set, hard to push and turn off-road ", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528137_7625_XXXL.jpg", "Zoe Twin+", 299.00m, 0.00m, null },
+                    { 13, 1, "Very small, well-made, adjustable leg rests.Expensive, harder to fold, no peek-a-boo windows ", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/74/518934_30632_XXXL.jpg", "Mountain Buggy Nano Duo", 549.95m, 0.00m, null },
+                    { 14, 2, "Easy to install and use, cozy comfort, nice quality.Average crash test results.", "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514035_20386_XL.jpg", "Britax Boulevard ClickTight ARB", 399.99m, 0.00m, null }
                 });
         }
 
@@ -132,22 +141,17 @@ namespace BabyKat.Infrastructure.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "1");
+                keyValue: "2");
 
             migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "2");
+                table: "AspNetUserRoles",
+                keyColumns: new[] { "RoleId", "UserId" },
+                keyValues: new object[] { "1", "dea12856-c198-4129-b3f3-b893d8395082" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "dea12856-c198-4129-b3f3-b893d22295082");
-
-            migrationBuilder.DeleteData(
-                table: "Categories",
-                keyColumn: "Id",
-                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Categories",
@@ -168,6 +172,11 @@ namespace BabyKat.Infrastructure.Migrations
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 7);
+
+            migrationBuilder.DeleteData(
+                table: "Categories",
+                keyColumn: "Id",
+                keyValue: 8);
 
             migrationBuilder.DeleteData(
                 table: "Products",
@@ -225,9 +234,34 @@ namespace BabyKat.Infrastructure.Migrations
                 keyValue: 11);
 
             migrationBuilder.DeleteData(
+                table: "Products",
+                keyColumn: "Id",
+                keyValue: 12);
+
+            migrationBuilder.DeleteData(
+                table: "Products",
+                keyColumn: "Id",
+                keyValue: 13);
+
+            migrationBuilder.DeleteData(
+                table: "Products",
+                keyColumn: "Id",
+                keyValue: 14);
+
+            migrationBuilder.DeleteData(
+                table: "AspNetRoles",
+                keyColumn: "Id",
+                keyValue: "1");
+
+            migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "dea12856-c198-4129-b3f3-b893d8395082");
+
+            migrationBuilder.DeleteData(
+                table: "Categories",
+                keyColumn: "Id",
+                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Categories",

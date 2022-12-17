@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BabyKat.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221214204023_createdb")]
+    [Migration("20221217204640_createdb")]
     partial class createdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

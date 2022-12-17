@@ -3,6 +3,7 @@ using BabyKat.Core.Models.Commentt;
 using BabyKat.Core.Models.Postt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
+using Ganss.Xss;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,13 @@ namespace BabyKat.Core.Services
         }
         public async Task AddComment(CommentModel model)
         {
+            var sanitizer = new HtmlSanitizer();
             var article = await repo.GetByIdAsync<Article>(model.ArticleId);
             var entity = new Comment()
             {
-                Author = model.Author,
+                Author = sanitizer.Sanitize(model.Author),
                 ArticleId = model.ArticleId,
-                Description = model.Description,
+                Description = sanitizer.Sanitize(model.Description),
                 Id = model.Id,
                 Article = article
             };

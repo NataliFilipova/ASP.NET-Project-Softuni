@@ -66,7 +66,7 @@
 
     
                          <li class="nav-item">
-                            <a class="nav-link" asp-area="Users" asp-controller="Post" asp-action="ShowUsersPosts">Your opinion</a>
+                            <a class="nav-link" asp-area="Users" asp-controller="Post" asp-action="ShowUsersPosts">Your posts</a>
                         </li>
 
                             <li class="nav-item">
@@ -76,6 +76,8 @@
                         <li class="nav-item">
                         <a class="nav-link " asp-area="Users" asp-controller="Article" asp-action="All"> Articles</a>
                         </li>
+
+                         
                         }
                         @if (User.IsInRole("Admin"))
                         {
@@ -91,13 +93,20 @@
                             </li>
                         }
                     </ul>
+                    @if (User?.Identity?.IsAuthenticated ?? false) {
+                        <form class="d-flex" action="/Users/Product/FindProductByName" method="get">
+                            <input class="form-control me-sm-2" type="search" placeholder="Search" id="id" name="id">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    }
+
+
                     
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
 
-       
 
      @*   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">

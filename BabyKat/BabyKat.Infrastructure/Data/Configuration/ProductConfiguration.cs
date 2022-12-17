@@ -139,8 +139,37 @@ namespace BabyKat.Infrastructure.Data.Configuration
                     ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/48/516311_9127_XXXL.jpg",
                     Rating = 0.00m
                 },
-
-
+                               new Product
+                {
+                    Id =12,
+                    Name = "Zoe Twin+",
+                    Price = 299.00m,
+                    Description = "Easy to use, giant canopies, quick fold, includes accessories. Brakes require extra attention to set, hard to push and turn off-road ",
+                    CategoryId = 1,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528137_7625_XXXL.jpg",
+                    Rating = 0.00m
+                },
+                new Product
+                {
+                    Id =13,
+                    Name = "Mountain Buggy Nano Duo",
+                    Price = 549.95m,
+                    Description = "Very small, well-made, adjustable leg rests.Expensive, harder to fold, no peek-a-boo windows ",
+                    CategoryId = 1,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/74/518934_30632_XXXL.jpg",
+                    Rating = 0.00m
+                },
+                 new Product
+                {
+                    Id =14,
+                    Name = "Britax Boulevard ClickTight ARB",
+                    Price = 399.99m,
+                    Description = "Easy to install and use, cozy comfort, nice quality.Average crash test results.",
+                    CategoryId = 2,
+                    ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514035_20386_XL.jpg",
+                    Rating = 0.00m
+                },
+                  
             };
             return products;
         }

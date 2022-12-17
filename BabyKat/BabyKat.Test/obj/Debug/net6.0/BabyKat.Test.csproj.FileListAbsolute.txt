@@ -148,3 +148,6 @@ D:\BabyKatSoft\BabyKat\BabyKat.Test\obj\Debug\net6.0\refint\BabyKat.Test.dll
 D:\BabyKatSoft\BabyKat\BabyKat.Test\obj\Debug\net6.0\BabyKat.Test.pdb
 D:\BabyKatSoft\BabyKat\BabyKat.Test\obj\Debug\net6.0\BabyKat.Test.genruntimeconfig.cache
 D:\BabyKatSoft\BabyKat\BabyKat.Test\obj\Debug\net6.0\ref\BabyKat.Test.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Test\bin\Debug\net6.0\AngleSharp.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Test\bin\Debug\net6.0\AngleSharp.Css.dll
+D:\BabyKatSoft\BabyKat\BabyKat.Test\bin\Debug\net6.0\HtmlSanitizer.dll

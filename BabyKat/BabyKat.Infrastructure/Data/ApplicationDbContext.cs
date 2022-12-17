@@ -52,6 +52,8 @@ namespace BabyKat.Infrastructure.Data
                 builder.ApplyConfiguration(new ProductConfiguration());
                 builder.ApplyConfiguration(new ArticleConfiguration());
                 builder.ApplyConfiguration(new RoleConfiguration());
+                builder.ApplyConfiguration(new UserRoleConfiguration());
+
 
             }
 

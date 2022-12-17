@@ -142,7 +142,7 @@ namespace BabyKat.Areas.Users.Controllers
                 return View("Error", erroMassage);
             }
 
-            return RedirectToAction("All", "Category");
+            return RedirectToAction("FavouriteProducts", "User");
         }
 
         public async Task<IActionResult> FavouriteProducts()

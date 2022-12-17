@@ -19,27 +19,28 @@
             flag = false;
         }
 
+
         <div class="card col-4 mt-2" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@product.ImageUrl" alt="Book Image">
             <div class="card-body">
 
-                <h5 class="card-title mt-1">@product.Name</h5>
-                <p class="mb-0">Price: @product.Price$</p>
-                <p class="mb-0">Description: @product.Description</p>
+                <h5 class="card-title mt-1 text-warning">@product.Name</h5>
+                <p class="mb-0 text-info">Price: @product.Price.ToString("0.00")$</p>
+                <p class="mb-0 text-success">Description: @product.Description</p>
                 @if(product.Rating != 0.000m){
-                   <p  class="mb-0">Rating: @product.Rating</p>
+                    <p class="mb-0 text-danger">Rating: @product.Rating.ToString("0.00")</p>
                 }
                 else {
-                    <p class="mb-0">There aren't any reviews from users.</p>
+                    <p class="mb-0 text-danger">There aren't any reviews from users.</p>
                 }
-              
+
 
 
                 <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
-                <a asp-controller="User" asp-action="AddToCollection" asp-route-productId="@product.Id" class="btn btn-outline-success">Add to Favourite</a>
+                <a asp-controller="User" asp-action="AddToCollection" asp-route-productId="@product.Id" class="btn btn-outline-info">Add to Favourite</a>
 
-                <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-success">Reviews from users</a>
+                <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-warning">Reviews from users</a>
             </div>
 
             

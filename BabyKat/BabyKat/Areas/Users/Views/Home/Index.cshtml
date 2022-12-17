@@ -22,17 +22,19 @@
 
 <div class="mb-5"></div> 
 
+
+                        @if(User?.Identity?.IsAuthenticated ?? false){
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"> 
     <div class="carousel-inner"> 
     @foreach(var item in Model)
     {
         <div class="carousel-item @((first) ? "active" : string.Empty)"> 
            
-            <img class="d-block w-100" style="height:700px" 
+            <img class="d-block w-100" style="height:500px" 
               src="@item.ImageUrl" alt="@item.Name">
              <div class="carousel-caption d-none d-md-block">
            <h5> 
-               <a class="btn btn-primary" asp-controller="Product" asp-action="ShowProduct"
+               <a class="btn btn-primary" asp-controller="Product" asp-action="showProduct"
                asp-route-productId="@item.Id"> @item.Name</a>
             </h5>
              </div>
@@ -47,5 +49,10 @@
     <span class="visually-hidden">Previous</span> </button> <button class="carousel-control-next"
     type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"> 
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span> </button> 
-</div>
+    <span class="visually-hidden">Next</span> </button>
+    </div>
+}
+else{
+    <h1 class="display-4">Welcome to the best place for baby gear!Please register to continue.</h1>
+}
+

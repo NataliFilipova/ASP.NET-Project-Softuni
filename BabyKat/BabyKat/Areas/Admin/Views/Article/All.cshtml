@@ -12,7 +12,7 @@
 <div class="text-center row">
     @foreach (var article in Model)
     {
-        <div class="card col-4" style="width: 20rem; ">
+        <div class="card col-4 mt-2" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@article.ImageUrl" alt="Post Image">
             <div class="card-body">
@@ -23,15 +23,13 @@
 
 
 
-       
 
-            <a asp-controller="Article" asp-action="Read" asp-route-articleId="@article.Id" class="btn btn-outline-success">Read</a>
 
-            @*<a asp-controller="Comment" asp-action="Add" asp-route-articleId="@article.Id" class="btn btn-outline-success">Add Comment</a>*@
+            <a asp-controller="Article" asp-action="Read" asp-route-articleId="@article.Id" class="btn btn-outline-info">Read</a>
 
-            <a asp-controller="Article" asp-action="RemoveArticle" asp-route-articleId="@article.Id" class="btn btn-outline-success">Delete</a>
+            <a asp-controller="Article" asp-action="RemoveArticle" asp-route-articleId="@article.Id" class="btn btn-outline-warning">Delete</a>
 
-            <a asp-controller="Article" asp-action="Edit" asp-route-articleId="@article.Id" class="btn btn-outline-success">Edit</a>
+            <a asp-controller="Article" asp-action="Edit" asp-route-articleId="@article.Id" class="btn btn-outline-danger">Edit</a>
         </div>
     }
 </div>

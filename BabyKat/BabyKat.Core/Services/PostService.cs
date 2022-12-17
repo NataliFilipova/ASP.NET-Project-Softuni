@@ -3,6 +3,7 @@ using BabyKat.Core.Models.Postt;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
+using Ganss.Xss;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,15 @@ namespace BabyKat.Core.Services
         }
         public async Task AddPost(PostModel model, string userId)
         {
+
+            var sanitizer = new HtmlSanitizer();
             var product = await repo.GetByIdAsync<Product>(model.ProductId);
             var user = await repo.GetByIdAsync<User>(userId);
             var entity = new Post()
             {
-                Title = model.Title,
+                Title = sanitizer.Sanitize(model.Title),
                 Rating = model.Rating,
-                Description = model.Description,
+                Description = sanitizer.Sanitize(model.Description),
                 ProductId = model.ProductId,
                 UserId = model.UserId,
                 Product = product,

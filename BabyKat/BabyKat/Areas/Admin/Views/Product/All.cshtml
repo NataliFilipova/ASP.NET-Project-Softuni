@@ -12,7 +12,7 @@
 <div class="text-center row">
     @foreach (var product in Model)
     {
-        <div class="card col-4" style="width: 20rem; ">
+        <div class="card col-4  mt-2" style="width: 20rem; ">
             <img class="card-img-top" style="width: 18rem;"
              src="@product.ImageUrl" alt="Book Image">
             <div class="card-body">
@@ -20,17 +20,31 @@
                 <h5 class="card-title mt-1">@product.Name</h5>
                 <p class="mb-0">Price: @product.Price$</p>
                 <p class="mb-0">Description: @product.Description$</p>
-                <p class="mb-0">Rating: @product.Rating</p>
                
-             
-                <p class="mb-0">Rating: @product.$</p>
 
-                <p class="mb-0">Price: @product.$</p>
+
+                @if (@product.Rating != 0.000m)
+                {
+                    <p class="mb-0 text-danger">Rating: @product.Rating.ToString("0.00")</p>
+                }
+                else
+                {
+                    <p class="mb-0 text-danger">There aren't any reviews from users.</p>
+                }
+
+
+                @if (@product.Rating != 0.000m)
+                {
+
+                    <a asp-controller="Post" asp-action="ShowPosts" asp-route-productId="@product.Id" class="btn btn-outline-danger">Reviews from users</a>
+                }
+
+
+
             </div>
 
             <a asp-controller="Product" asp-action="RemoveProduct" asp-route-productId="@product.Id" class="btn btn-outline-success">Delete</a>
-           
-            <a asp-controller="Post" asp-action="Add" asp-route-productId="@product.Id" class="btn btn-outline-success">Post Review</a>
+               
 
             <a asp-controller="Product" asp-action="Edit" asp-route-productId="@product.Id" class="btn btn-outline-success">Edit Product</a>
           

@@ -60,6 +60,12 @@ namespace BabyKat.Infrastructure.Data.Configuration
                      Id = 7,
                     Name = "Soothe",
                     ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg"
+                },
+                 new Category
+                {
+                     Id = 8,
+                    Name = "Toys",
+                    ImageUrl = "https://s13emagst.akamaized.net/products/1863/1862082/images/res_1b722249fcaa154fb1533cbcd08f8480.jpg"
                 }
             };
             return categories;

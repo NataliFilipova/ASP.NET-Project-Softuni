@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BabyKat.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221214204434_seedDb")]
-    partial class seedDb
+    [Migration("20221217204729_seeddb")]
+    partial class seeddb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,6 +204,12 @@ namespace BabyKat.Infrastructure.Migrations
                             Id = 7,
                             ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/24/523962_24845_XXXL.jpg",
                             Name = "Soothe"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ImageUrl = "https://s13emagst.akamaized.net/products/1863/1862082/images/res_1b722249fcaa154fb1533cbcd08f8480.jpg",
+                            Name = "Toys"
                         });
                 });
 
@@ -428,6 +434,36 @@ namespace BabyKat.Infrastructure.Migrations
                             Name = "Peg Perego Viaggio Flex 120",
                             Price = 319.99m,
                             Rating = 0.00m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 1,
+                            Description = "Easy to use, giant canopies, quick fold, includes accessories. Brakes require extra attention to set, hard to push and turn off-road ",
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/40/66/528137_7625_XXXL.jpg",
+                            Name = "Zoe Twin+",
+                            Price = 299.00m,
+                            Rating = 0.00m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 1,
+                            Description = "Very small, well-made, adjustable leg rests.Expensive, harder to fold, no peek-a-boo windows ",
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/74/518934_30632_XXXL.jpg",
+                            Name = "Mountain Buggy Nano Duo",
+                            Price = 549.95m,
+                            Rating = 0.00m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CategoryId = 2,
+                            Description = "Easy to install and use, cozy comfort, nice quality.Average crash test results.",
+                            ImageUrl = "https://bgl-i48k9hqubvkf8lnt.stackpathdns.com/photos/39/25/514035_20386_XL.jpg",
+                            Name = "Britax Boulevard ClickTight ARB",
+                            Price = 399.99m,
+                            Rating = 0.00m
                         });
                 });
 
@@ -528,9 +564,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4c3dc699-e9cc-4bb0-ac65-fe170e18b510",
+                            ConcurrencyStamp = "3a592a11-8bed-4125-9158-600ed829b0c8",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 12, 14, 22, 44, 34, 145, DateTimeKind.Local).AddTicks(6442),
+                            CreatedDate = new DateTime(2022, 12, 17, 22, 47, 28, 853, DateTimeKind.Local).AddTicks(78),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -539,10 +575,10 @@ namespace BabyKat.Infrastructure.Migrations
                             LastName = "Petrov",
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
-                            NormalizedUserName = "ivancho",
-                            PasswordHash = "AQAAAAEAACcQAAAAEODaF7jRuo1IN2WNAGmidf8jN3w7dYZ/hQW5u/UT44ztYStVPaIh4ujaVIc2NbXSoA==",
+                            NormalizedUserName = "IVANCHO",
+                            PasswordHash = "AQAAAAEAACcQAAAAELBVK2da5inshIX3ThoiFPqeJzZfHOjvVlVPTzXbTC2tfXAnebbHgMs4mQVAKEpy0Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cf0d7ac3-95f1-4ef9-82d0-8be9d6e4628c",
+                            SecurityStamp = "2591b139-fb54-47f6-8cb4-9c23bb866cee",
                             TwoFactorEnabled = false,
                             UserName = "ivancho"
                         },
@@ -550,9 +586,9 @@ namespace BabyKat.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d22295082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c12626d2-3830-49ed-a09e-5f2c6d7bc2c0",
+                            ConcurrencyStamp = "ededd51f-bea3-4c08-98fc-c3346ba4c6bc",
                             Country = "Bulgaria",
-                            CreatedDate = new DateTime(2022, 12, 14, 22, 44, 34, 148, DateTimeKind.Local).AddTicks(5433),
+                            CreatedDate = new DateTime(2022, 12, 17, 22, 47, 28, 863, DateTimeKind.Local).AddTicks(7426),
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Natali",
@@ -561,9 +597,10 @@ namespace BabyKat.Infrastructure.Migrations
                             LastName = "Petrov",
                             LockoutEnabled = false,
                             NormalizedEmail = "agen22t@mail.com",
-                            NormalizedUserName = "gepeto",
+                            NormalizedUserName = "GEPETO",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEM2HHyMmkZnJszdrEI1SAPzUwqpNrQmOlB33SxxJaxxGHvdyM7Z1D/TyvZe2eL9JQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8637cead-db99-4dca-9b00-11e2dd959fed",
+                            SecurityStamp = "55ee9701-4d75-4601-b28c-238cda268dec",
                             TwoFactorEnabled = false,
                             UserName = "gepeto"
                         });
@@ -599,14 +636,16 @@ namespace BabyKat.Infrastructure.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "115eeb99-7f6e-4406-a1e2-64cb8221546f",
-                            Name = "Admin"
+                            ConcurrencyStamp = "4fbf3a28-f878-4492-b40d-c5de13b4b11b",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "18e957dc-8ea6-4d66-88df-05ffc1670bfc",
-                            Name = "User"
+                            ConcurrencyStamp = "87db2d6f-23bb-4b1c-9706-81052e0009a9",
+                            Name = "User",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -697,6 +736,13 @@ namespace BabyKat.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "dea12856-c198-4129-b3f3-b893d8395082",
+                            RoleId = "1"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

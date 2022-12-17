@@ -4,6 +4,7 @@ using BabyKat.Core.Models.Categoryy;
 using BabyKat.Core.Models.Productt;
 using BabyKat.Infrastructure.Data;
 using BabyKat.Infrastructure.Data.Repositories;
+using Ganss.Xss;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -53,13 +54,14 @@ namespace BabyKat.Core.Services
 
         }
 
-        public async Task AddProductAsync(ProductModel model)
+        public async Task AddProductAsync(ProductRatingModel model)
         {
+            var sanitizer = new HtmlSanitizer();
             var entity = new Product()
             {
-                Name = model.Name,
-                Description = model.Description,
-                ImageUrl = model.ImageUrl,
+                Name = sanitizer.Sanitize(model.Name),
+                Description = sanitizer.Sanitize(model.Description),
+                ImageUrl = sanitizer.Sanitize(model.ImageUrl),
                 Price = model.Price,
                 
                 CategoryId = model.CategoryId
@@ -129,13 +131,15 @@ namespace BabyKat.Core.Services
 
             var entity = new ProductRatingModel()
             {
+                Id = productId,
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
                 ImageUrl = product.ImageUrl,
                 CategoryId = product.CategoryId,
                 Posts = product.Posts,
-                Rating = product.Posts.Count == 0 ? 0.00m : product.Posts.Average(p => p.Rating)
+                Rating = product.Posts.Count == 0 ? 0.00m : product.Posts.Average(p => p.Rating),
+                Categories = repo.All<Category>()
 
 
             };
@@ -143,21 +147,48 @@ namespace BabyKat.Core.Services
         }
 
 
-        public async Task EditProduct(int productId, ProductModel model)
+        public async Task EditProduct(int productId, ProductRatingModel model)
         {
+            var sanitizer = new HtmlSanitizer();
             var product = await repo.GetByIdAsync<Product>(productId);
 
-            product.Name = model.Name;
-            product.Description = model.Description;
+            product.Name = sanitizer.Sanitize(model.Name);
+            product.Description = sanitizer.Sanitize(model.Description);
             product.Price = model.Price;
-            product.ImageUrl = model.ImageUrl;
+            product.ImageUrl = sanitizer.Sanitize(model.ImageUrl);
             product.CategoryId = model.CategoryId;
+            
 
             repo.Update(product);
             await repo.SaveChangesAsync();
 
         }
 
-       
+        public async Task<ProductRatingModel> FindProduct(string nameProduct)
+        {
+            var product = await repo.All<Product>(p => p.Name == nameProduct).FirstOrDefaultAsync();
+            if(product == null)
+            {
+                throw new ArgumentException("Product doesn't exist.");
+            }
+
+
+            var entity = new ProductRatingModel()
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                ImageUrl = product.ImageUrl,
+                CategoryId = product.CategoryId,
+                Posts = product.Posts,
+                Rating = product.Posts.Count == 0 ? 0.00m : product.Posts.Average(p => p.Rating),
+                Categories = repo.All<Category>()
+
+
+            };
+            return entity;
+
+
+        }
     }
 }

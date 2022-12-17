@@ -12,7 +12,7 @@
 <div class="text-center row">
     @foreach (var category in Model)
     {
-        <div class="card col-4" style="width: 20rem; ">
+        <div class="card col-4  mt-2" style="width: 20rem; ">
          
 
                 <h5 class="card-title mt-1">@category.Name</h5>
@@ -24,7 +24,7 @@
 
             @if (User.IsInRole("Admin"))
             {
-                <a asp-controller="Category" asp-action="RemoveCategory" asp-route-categoryId="@category.Id" class="btn btn-outline-success">Delete</a>
+                <a asp-controller="Category" asp-action="RemoveCategory" asp-route-categoryId="@category.Id" class=" btn btn-outline-warning">Delete</a>
 
               
             }

@@ -1,6 +1,7 @@
 ﻿using BabyKat.Core.Contracts;
 using BabyKat.Core.Models._Product;
 using BabyKat.Infrastructure.Data;
+using BabyKat.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -49,6 +50,21 @@ namespace BabyKat.Areas.Users.Controllers
             var model = await productService.GetProduct(productId);
 
             return View(model);
+        }
+
+        public async Task<IActionResult> FindProductByName(string id)
+        {
+            try
+            {
+                var product = await productService.FindProduct(id);
+
+                return View(product);
+            }
+            catch (Exception e)
+            {
+                var erroMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", erroMassage);
+            }
         }
     }
 }

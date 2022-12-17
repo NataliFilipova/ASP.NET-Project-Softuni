@@ -71,6 +71,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BabyKatSoft/BabyKat/BabyKat/Areas/Admin/Views/Product/FindProductByName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxGaW5kUHJvZHVjdEJ5TmFtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BabyKatSoft/BabyKat/BabyKat/Areas/Admin/Views/Product/ShowCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxTaG93Q2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -169,6 +173,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Areas/Users/Views/Product/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BabyKatSoft/BabyKat/BabyKat/Areas/Users/Views/Product/FindProductByName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxGaW5kUHJvZHVjdEJ5TmFtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BabyKatSoft/BabyKat/BabyKat/Areas/Users/Views/Product/ShowCategory.cshtml]

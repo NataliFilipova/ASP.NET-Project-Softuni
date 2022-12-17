@@ -48,6 +48,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[8.0.601, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

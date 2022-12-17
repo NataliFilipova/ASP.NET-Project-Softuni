@@ -1106,3 +1106,6 @@ D:\Games\BabyKatSoft\BabyKat\BabyKat\obj\Debug\net6.0\scopedcss\projectbundle\Ba
 D:\Games\BabyKatSoft\BabyKat\BabyKat\obj\Debug\net6.0\BabyKat.csproj.CopyComplete
 D:\Games\BabyKatSoft\BabyKat\BabyKat\obj\Debug\net6.0\BabyKat.genruntimeconfig.cache
 D:\Games\BabyKatSoft\BabyKat\BabyKat\obj\Debug\net6.0\ref\BabyKat.dll
+D:\BabyKatSoft\BabyKat\BabyKat\bin\Debug\net6.0\AngleSharp.dll
+D:\BabyKatSoft\BabyKat\BabyKat\bin\Debug\net6.0\AngleSharp.Css.dll
+D:\BabyKatSoft\BabyKat\BabyKat\bin\Debug\net6.0\HtmlSanitizer.dll

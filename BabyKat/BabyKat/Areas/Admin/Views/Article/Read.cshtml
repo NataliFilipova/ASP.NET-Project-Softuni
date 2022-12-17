@@ -9,7 +9,7 @@
 <div class="text-center row">
  
     <div class="card mb-3">
-        <h3 class="card-header">@Model.Title</h3>
+        <h3 class="card-header text-warning">@Model.Title</h3>
         <div class="card-body-article">
 
             <img class="article-img" style="width: 80%; "
@@ -22,28 +22,29 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Comments: </h4>
+    @if (Model.Comments.Count != 0)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Comments: </h4>
 
-            @foreach (var comment in @Model.Comments)
-            {
+                @foreach (var comment in @Model.Comments)
+                {
 
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Description: @comment.Description</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Author: @comment.Author</h6>
-                       
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"> @comment.Description</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">Author: @comment.Author</h6>
+
+                        </div>
                     </div>
-                </div>
-                <a asp-controller="Comment" asp-action="Remove" asp-route-commentId="@comment.Id" class="btn btn-outline-success">Delete comment</a>
-                
-               
-            }
-        </div>
-    </div>
+                    <a asp-controller="Comment" asp-action="Remove" asp-route-commentId="@comment.Id" class="btn btn-danger">Delete comment</a>
 
-    <a asp-controller="Comment" asp-action="Add" asp-route-articleId="@Model.Id" class="btn btn-outline-success">Add Comment</a>
+                }
+            </div>
+    </div>
+    }
+    <a asp-controller="Comment" asp-action="Add" asp-route-articleId="@Model.Id" class="btn btn-outline-danger">Add Comment</a>
 </div>
 
 
